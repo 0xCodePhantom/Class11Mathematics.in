@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Class 11 Maths Notes - Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+  --primary: #00d4ff;
+  --primary-dark: #0077b6;
+  --glass-bg: rgba(255, 255, 255, 0.18);
+  --blur: blur(18px);
+  --text-dark: #022b3a;
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+  body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0, #d299c2);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  animation: fadeSlideUp 1.2s ease forwards;
+  opacity: 1;
+  transform: translateY(20px);
+}
+   @keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+   .about-section {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  padding: 50px 32px;
+  margin-top: 40px;
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.about-section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  color: var(--primary-dark);
+  text-shadow: 0 0 12px rgba(0, 183, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.about-section h2:hover {
+  color: black;
+  text-shadow: 0 0 18px rgba(0, 183, 255, 0.6);
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .about-section p {
+      font-size: 1.05rem;
+      color: #04455a;
+      margin-bottom: 32px;
+      line-height: 1.8;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 26px;
+      margin-bottom: 36px;
+    }
+
+  .member {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 6px 25px rgba(0, 183, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.member:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 183, 255, 0.35);
+}
+
+.member img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+  margin-bottom: 14px;
+  transition: transform 0.4s ease;
+}
+
+.member:hover img {
+  transform: rotate(-3deg) scale(1.08);
+}
+
+    .name {
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .role {
+      font-size: 0.92rem;
+      color: #333;
+    }
+
+footer {
+  margin: 40px 0 15px;
+  font-size: 0.9rem;
+  color: #001033ce;
+  text-align: center;
+}
+    .back-home {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 42px;
+      height: 42px;
+      font-size: 20px;
+      font-weight: bold;
+      color: black;
+      background-color: rgba(255,255,255,0.65);
+      border-radius: 50%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      z-index: 999;
+      backdrop-filter: blur(6px);
+    }
+
+    .back-home:hover {
+      background-color: rgba(255,255,255,0.9);
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        padding: 22px 16px;
+      }
+
+      .about-section h2 {
+        font-size: 1.9rem;
+      }
+
+      .about-section p {
+        font-size: 0.98rem;
+      }
+
+      .team {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .member img {
+        width: 90px;
+        height: 90px;
+      }
+      .back-home {
+        font-size: 18px;
+        top: 15px;
+        left: 15px;
+      }
+
+      footer {
+        font-size: 0.85rem;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <section class="about-section">
+    <h2>About the Team</h2>
+    <p>
+      We are a group of developers, designers, and educators with one mission: to build a smart, clean, and student-friendly platform for Class 11 learners.  
+      Being Class 11 students ourselves, we understand the challenges and are here to create a modern learning experience.
+    </p>
+
+    <div class="team">
+      <div class="member">
+        <img src="Developers_Logo.jpg" alt="Developers">
+        <div class="name">Developers</div>
+        <div class="role">Team</div>
+      </div>
+      <div class="member">
+        <img src="Creator.jpg" alt="Harshit">
+        <div class="name">Harshit</div>
+        <div class="role">Page Developer</div>
+      </div>
+    </div>
+
+  <a href="index.htm" class="back-home">✕</a>
+
+  <footer>
+    © 2025 Developers — Designed with ❤️ for Smart Learning
+  </footer>
+
+</body>
+</html>

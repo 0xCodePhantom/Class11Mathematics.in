@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 11 Mathematics</title>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+/* =========================
+   RESET & FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   BASE BODY STYLES
+========================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #00233f;
+  position: relative;
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  overflow-x: hidden;
+}
+
+/* Gradient overlay animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(60deg, #ff0080, #7928ca, #00c3ff, #ffbe00);
+  background-size: 600% 600%;
+  animation: gradientBG 20s ease infinite;
+  z-index: -1;
+  opacity: 0.15;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* ===== DARK MODE TOGGLE ===== */
+    .neon-toggle {
+      position:absolute; right:28px; top:18px; width:64px; height:34px;
+      border-radius:50px;
+      background: linear-gradient(135deg,#00d4ff,#0072ff);
+      box-shadow:0 0 10px rgba(0,162,255,0.6), inset 0 0 8px rgba(255,255,255,0.3);
+      cursor:pointer; transition:0.4s; overflow:hidden;
+    }
+    body.dark .neon-toggle {
+     background: linear-gradient(135deg,#22d3ee,#8b5cf6);
+      box-shadow:0 0 12px rgba(138,43,226,0.7), inset 0 0 6px rgba(255,255,255,0.2);
+    }
+    .neon-circle { position:absolute; top:3px; left:3px; width:28px; height:28px; border-radius:50%;   background:#fff; color:#fbbf24; display:flex; align-items:center; justify-content:center; font-size:17px; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:0.4s; }
+    .sun::before { content:"☀️"; } .moon::before { content:"🌙"; }
+    body.dark .neon-circle { transform:translateX(30px); background:#111; color:#facc15; }
+
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 40px;
+  flex-wrap: nowrap;
+  backdrop-filter: blur(8px);
+  position: sticky; top:0;
+  z-index:1000;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Nata Sans' sans-serif;
+  letter-spacing:1px;
+  color:#000;
+}
+
+
+    .navbar .logo span{
+      font-family: 'Nata Sans';
+    }
+
+.navbar .menu {
+  display:flex;
+  gap:28px;
+  align-items:center;
+  position:relative;
+  right:75px;
+}
+
+.navbar a {
+  text-decoration:none;
+  color: rgb(0,35,61);
+  font-weight:600; font-size:14px;
+  transition: color 0.3s ease;
+}
+.navbar a:hover { color:#38bdf8; }
+
+/* Dropdown */
+.dropdown { position:relative; display:inline-block; }
+.dropdown button {
+  background:none; border:none; cursor:pointer;
+  font-weight:600; font-size:14px;
+  color: rgb(0,35,61); padding:10px 0;
+  transition: color 0.3s ease;
+}
+.dropdown button:hover { color:#38bdf8; }
+
+.dropdown-content {
+    position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 240px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.dropdown-content a {
+  display:flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #00233f;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+.dropdown-content a:hover { background: #ace0fc50 ;
+  transform: translateX(8px); color: black;}
+.dropdown:hover .dropdown-content { opacity:1; pointer-events:auto; max-height:500px; }
+
+
+.dropdown-content a i {
+  font-size: 12px;
+  color: #0ea5e9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.dropdown-content a:hover i {
+  transform: rotate(15deg) scale(1.2);
+  color: #ff00bf;
+}
+
+.arrow{
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.dropdown:hover .arrow{
+  transform: rotate(180deg);
+}
+/* =========================
+   HERO SECTION
+========================= */
+.hero-section {
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  text-align:center;
+  height: calc(100vh - 80px);
+  font-family: 'Orbitron', sans-serif;
+  padding:0 20px;
+  animation: fadeIn 2s ease forwards;
+  opacity:0;
+}
+.hero-section h1 {
+  font-size:3.5rem;
+  background: linear-gradient(90deg,#03ccd3,#01ca55,#ff00bf);
+  background-clip:text; -webkit-background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+  margin-bottom:20px;
+}
+.hero-section p {
+  font-size:1.5rem; color:#00233f; margin-bottom:40px;
+}
+.cta-button {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg,#00d4ff,#0072ff);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,212,255,0.5);
+       /* ensure text is centered */
+}
+.cta-button:hover { transform:scale(1.05); box-shadow:0 6px 20px rgba(0,212,255,0.6); }
+
+@keyframes fadeIn { to {opacity:1;} }
+
+/* =========================
+   FLOATING SHAPES (GLOBAL)
+========================= */
+.floating-shape {
+  position:absolute;
+  border-radius:50%;
+  opacity:0.2;
+  animation: float 10s ease-in-out infinite;
+  z-index:0;
+}
+.shape1 { width:100px;height:100px;background:#ff00bf;top:10%;left:15%;animation-delay:0s;}
+.shape2 { width:150px;height:150px;background:#00d4ff;top:60%;left:70%;animation-delay:3s;}
+.shape3 { width:80px;height:80px;background:#ffbe00;top:40%;left:50%;animation-delay:5s;}
+@keyframes float {0%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(20px);}100%{transform:translateY(0) translateX(0);}}
+
+/* =========================
+   WHY PLATFORM SECTION
+========================= */
+#why-platform { padding:80px 20px; max-width:1200px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+#why-platform h2 {
+  font-size:3rem; font-family:'Nata Sans'; margin-bottom:30px;
+  background: linear-gradient(90deg,#03ccd3,#01ca55,#ff00bf);
+  background-clip:text; -webkit-background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+}
+#why-platform p { font-size:1.3rem; color:#00233f; max-width:800px; margin:0 auto 50px auto; }
+#why-platform .features {
+  display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; margin-top:20px;
+}
+#why-platform .feature-card {
+  background: rgba(255,255,255,0.05);
+  padding:30px 20px; border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor:pointer; position:relative; overflow:hidden;
+}
+#why-platform .feature-card i {
+  font-size:2.5rem; margin-bottom:15px; transition: transform 0.3s ease, color 0.3s ease;
+}
+#why-platform .feature-card h3 { font-size:1.4rem; margin-bottom:10px; color:#00233f; }
+#why-platform .feature-card p { font-size:1rem; color:#00233f; }
+#why-platform .feature-card:hover { transform: translateY(-10px) scale(1.05); box-shadow:0 15px 30px rgba(0,0,0,0.5); background: rgba(255,255,255,0.1);}
+#why-platform .feature-card:hover i { transform: rotate(10deg) scale(1.2); color:#ff00bf; }
+
+/* =========================
+   VALUE SECTION
+========================= */
+#value-section { padding:80px 20px; max-width:900px; margin:0 auto; text-align:center; }
+#value-section h2 {
+  font-size:3rem; font-family:'Nata Sans'; margin-bottom:40px;
+  background: linear-gradient(90deg,#ff7a18,#af002d,#319197);
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+}
+#value-section ol { list-style:none; counter-reset:value-counter; padding-left:0; }
+#value-section ol li {
+  counter-increment:value-counter; margin-bottom:40px;
+  text-align:left; position:relative; padding-left:60px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+#value-section ol li span {
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff7a18, #af002d, #319197);
+   background-clip: text; -webkit-background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+
+}
+#value-section ol li h3 { margin:0 0 8px 0; font-size:1.5rem; color:#00233f; }
+#value-section ol li p { margin:0; color:#00233f; font-size:1.1rem; }
+#value-section ol li:hover { transform:translateX(5px); }
+
+/* =========================
+   COMMENT SECTION
+========================= */
+.comment { color:#333; font-size:10px; }
+#comment-section h2 {
+  font-size:2.5rem; font-family:'Nata Sans'; margin-bottom:30px;
+  background: linear-gradient(90deg,#ff7a18,#af002d,#319197);
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+}
+#comment-form input, #comment-form textarea {
+  padding:12px 15px; border-radius:8px; border:1px solid #ccc; font-size:1rem;
+}
+#comment-form button {
+  padding:12px 25px; border:none; border-radius:50px; background: linear-gradient(135deg,#00d4ff,#0072ff);
+  color:#fff; font-weight:600; cursor:pointer; transition:all 0.3s ease;
+}
+#comments-container div { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  color:#000; opacity:0.7; text-align:center;
+  position:relative; margin-top:auto; z-index:1;
+  padding:15px 10px; font-size:0.85rem;
+}
+
+/* =========================
+   TOAST
+========================= */
+.toast {
+  position:fixed; bottom:30px; right:30px;
+  background: rgba(0,0,0,0.85); color:#fff;
+  padding:14px 22px; border-radius:8px; font-size:1rem;
+  opacity:0; pointer-events:none; transform:translateY(20px);
+  transition:opacity 0.5s ease, transform 0.5s ease;
+  z-index:9999;
+}
+.toast.show { opacity:1; pointer-events:auto; transform:translateY(0); }
+
+
+.connect {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.connect-container {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.connect-title {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #002255;
+  letter-spacing: 1px;
+}
+
+.connect-subtitle {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  color: rgb(77, 77, 77);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #002b5c;
+  font-size: 0.9rem;
+}
+
+.social-card i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.social-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.3), 0 0 40px rgba(0, 162, 255, 0.4);
+}
+
+
+/* =========================
+   RESPONSIVE MEDIA QUERIES
+========================= */
+/* Small devices (phones) */
+@media (max-width:600px){
+  .hero-section h1 { font-size:2rem; line-height:1.3; }
+  .hero-section p { font-size:1rem; margin-bottom:25px; }
+  .cta-button { padding:10px 20px; font-size:0.9rem; }
+  .navbar { flex-direction:column; align-items:flex-start; padding:6px 20px; }
+  .navbar .menu { flex-direction:column; gap:12px; right:0; width:100%; }
+  .dropdown-content { min-width:200px; }
+  #why-platform h2, #value-section h2 { font-size:2rem; }
+  #why-platform p, #value-section ol li p { font-size:0.95rem; }
+  #why-platform .features { grid-template-columns:1fr; }
+  #value-section ol li { padding-left:40px; }
+  #value-section ol li span { font-size:1.5rem; }
+  .floating-shape { opacity:0.2; }
+}
+
+/* Mobile Navbar Logo Adjustment */
+@media (max-width:600px) {
+  .navbar .logo {
+    font-size: 20px; /* smaller font */
+  }
+  .navbar .logo i {
+    font-size: 20px; /* smaller icon */
+    top: 2px; /* adjust vertical alignment */
+  }
+  /* Change text from "Class 11 Mathematics" to "11th Maths" */
+  .navbar .logo::after {
+    content: "11th Maths";
+    font-family: 'Nata Sans', sans-serif;
+  }
+  /* Hide the original text on mobile */
+  .navbar .logo span {
+    display: none;
+  }
+}
+
+
+/* Medium devices (tablets) */
+@media (min-width:601px) and (max-width:900px){
+  .hero-section h1 { font-size:2.5rem; }
+  .hero-section p { font-size:1.2rem; }
+  .cta-button { padding:12px 28px; font-size:1rem; }
+  #why-platform h2, #value-section h2 { font-size:2.5rem; }
+  #why-platform .features { grid-template-columns: repeat(2,1fr); gap:20px; }
+  #value-section ol li { padding-left:50px; }
+  #value-section ol li span { font-size:1.8rem; }
+}
+
+/* Large devices (desktop) */
+@media (min-width:901px){
+  .hero-section h1 { font-size:3.5rem; }
+  .hero-section p { font-size:1.5rem; }
+  .cta-button { padding:14px 32px; font-size:1rem; }
+  #why-platform h2, #value-section h2 { font-size:3rem; }
+  #why-platform .features { grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); }
+  #value-section ol li span { font-size:2rem; }
+}
+
+ .contact-container {
+     background: rgba(255,255,255,0.05);
+  padding:30px 20px; border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor:pointer; position:relative; overflow:hidden;
+
+      
+    }
+
+    .contact-container h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #333;
+    }
+
+    .contact-container p {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #6c63ff;
+      outline: none;
+      box-shadow: 0px 0px 5px rgba(108, 99, 255, 0.4);
+    }
+
+    form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+  .contact-container  button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg,#00d4ff,#0072ff);
+      color: #fff;
+      display: flex; 
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,212,255,0.5);
+      justify-content:center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+   .contact-container button:hover {
+     transform:scale(1.05); box-shadow:0 6px 20px rgba(0,212,255,0.6);
+    }
+
+    .success {
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+      font-weight: 500;
+    }
+
+    .error {
+      text-align: center;
+      margin-top: 15px;
+      color: red;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar left as is -->
+  <nav class="navbar">
+    <div class="logo"><i class="fi fi-ss-book-open-cover" style="position: relative; left: -2px; top: 3px;"></i> <span>Class 11 Mathematics</span></div>
+    <div class="menu">
+      <a href="index.htm">Home</a>
+      <div class="dropdown">
+        <button>Extras<span class="arrow">▾</span></button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm">About</a>
+    </div>
+
+    <div class="neon-toggle" id="theme-toggle">
+      <div class="neon-circle sun"></div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <h1>Unlock Knowledge. Build the Future.</h1>
+    <p>A smart space for learners who aim higher. Curated notes, deep insights, and clear explanations — everything you need to stay ahead.</p>
+    <button class="cta-button" onclick="window.location.href='tabs.htm'">Start Learning </button>
+  </div>
+
+
+
+
+  <!-- Floating shapes -->
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+  <div class="floating-shape shape3"></div>
+<!-- Why This Platform Section -->
+<section id="why-platform" style="padding:80px 20px; max-width:1200px; margin:0 auto; text-align:center; position:relative; z-index:1;">
+
+  <h2 style="font-size:3rem; font-family:'Nata Sans', sans-serif; margin-bottom:30px; 
+      background: linear-gradient(90deg, #03ccd3, #01ca55, #ff00bf); 
+        background-clip: text;           /* standard */
+  -webkit-background-clip: text;   /* Safari/Webkit */
+  color: transparent;               /* fallback */
+  -webkit-text-fill-color: transparent; /* Safari/Webkit */ letter-spacing:1px;">
+    Why Choose This Platform?
+  </h2>
+
+  <p style="font-size:1.3rem; color:#00233f; max-width:800px; margin:0 auto 50px auto;">
+    Our platform provides interactive resources, solved examples, past questions, and real-time guidance to make Class 11 Mathematics simple, engaging, and topper-friendly.
+  </p>
+
+  <div class="features" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:30px; margin-top:20px;">
+    <div class="feature-card" style="background: rgba(255,255,255,0.05); padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;">
+      <i class="fi fi-ss-book" style="font-size:2.5rem; margin-bottom:15px; color:#03ccd3;"></i>
+      <h3 style="font-size:1.4rem; margin-bottom:10px; color:#00233f;">Comprehensive Content</h3>
+      <p style="font-size:1rem; color:#00233f;">All chapters explained with clarity, examples, and exercises for maximum understanding.</p>
+    </div>
+    <div class="feature-card" style="background: rgba(255,255,255,0.05); padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;">
+      <i class="fi fi-ss-layers" style="font-size:2.5rem; margin-bottom:15px; color:#ff00bf;"></i>
+      <h3 style="font-size:1.4rem; margin-bottom:10px; color:#00233f;">Past Questions</h3>
+      <p style="font-size:1rem; color:#00233f;">Access 43 years of solved CBSE questions to practice effectively and score higher.</p>
+    </div>
+    <div class="feature-card" style="background: rgba(255,255,255,0.05); padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;">
+      <i class="fi fi-ss-document" style="font-size:2.5rem; margin-bottom:15px; color:#ffbe00;"></i>
+      <h3 style="font-size:1.4rem; margin-bottom:10px; color:#00233f;">Interactive Resources</h3>
+      <p style="font-size:1rem; color:#00233f;">Animations, diagrams, and problem-solving steps to boost comprehension and retention.</p>
+    </div>
+    <div class="feature-card" style="background: rgba(255,255,255,0.05); padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;">
+      <i class="fi fi-ss-light-bulb" style="font-size:2.5rem; margin-bottom:15px; color:#01ca55;"></i>
+      <h3 style="font-size:1.4rem; margin-bottom:10px; color:#00233f;">Smart Learning</h3>
+      <p style="font-size:1rem; color:#00233f;">Focus on important concepts, time-saving tips, and smart learning strategies for exams.</p>
+    </div>
+  </div>
+
+  <!-- Optional floating math icons for this section -->
+  <div class="floating-shape" style="width:60px; height:60px; background:#03ccd3; top:5%; left:5%;"></div>
+  <div class="floating-shape" style="width:80px; height:80px; background:#ff00bf; top:70%; left:80%;"></div>
+  <div class="floating-shape" style="width:50px; height:50px; background:#ffbe00; top:40%; left:20%;"></div>
+
+</section>
+<!-- Value Section - Ordered Points Design -->
+<section id="value-section">
+  <h2>For Students Who Want More Than Average</h2>
+
+  <ol>
+    <li>
+      <span>1</span>
+      <h3>Building Strong Fundamentals</h3>
+      <p>Master core concepts deeply so that advanced topics become easy to grasp.</p>
+    </li>
+    <li>
+      <span>2</span>
+      <h3>Developing Problem-Solving Confidence</h3>
+      <p>Approach problems strategically and gain the confidence to solve tough questions.</p>
+    </li>
+    <li>
+      <span>3</span>
+      <h3>Preparing for Exams Without Last-Minute Panic</h3>
+      <p>Plan and revise systematically to stay calm and confident before exams.</p>
+    </li>
+    <li>
+      <span>4</span>
+      <h3>Growing Curiosity Beyond the Syllabus</h3>
+      <p>Explore concepts beyond textbooks and nurture curiosity that sets you apart.</p>
+    </li>
+  </ol>
+</section>
+
+
+
+ <section id="contact-section" style="padding:80px 20px; display:flex; justify-content:center; align-items:center;">
+  <div class="contact-container" style="max-width:500px; background: rgba(255,255,255,0.05); padding:40px; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.3);">
+    <h2 style="text-align:center; font-size:28px; font-weight:600; color:#00233f; margin-bottom:15px;">Mail Us</h2>
+    <p style="text-align:center; font-size:14px; color:#666; margin-bottom:25px;">We’d love to hear from you! Send us a mail below.
+      <br>
+      Feel free to share all your thoughts and suggestions related to the website. If you have any complaints then you can do the same.
+    </p>
+    <form id="contact-form">
+      <input type="text" name="user_name" placeholder="Your Name" required style="width:100%; padding:14px; margin:10px 0; border-radius:12px; border:1px solid #ddd; font-size:15px; transition:0.3s ease;">
+      <input type="email" name="user_email" placeholder="Your Email" required style="width:100%; padding:14px; margin:10px 0; border-radius:12px; border:1px solid #ddd; font-size:15px; transition:0.3s ease;">
+      <textarea name="message" placeholder="Your Message" required style="width:100%; padding:14px; margin:10px 0; border-radius:12px; border:1px solid #ddd; font-size:15px; transition:0.3s ease; resize:none; height:120px;"></textarea>
+      <button type="submit" >Send Mail</button>
+    </form>
+    <div id="form-status" style="text-align:center; margin-top:15px;"></div>
+  </div>
+</section>
+
+<!-- Connect With Us Section -->
+<section class="connect" id="connect">
+  <div class="connect-container">
+    <h2 class="connect-title">Connect With Us</h2>
+    <p class="connect-subtitle">Stay in touch through your favorite platform</p>
+    <div class="social-links">
+      <a href="https://whatsapp.com/channel/0029Vb67nwrFCCoY9N9oBi2t" target="_blank" class="social-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+      <a href="https://t.me/deve_lopers" target="_blank" class="social-card">
+        <i class="fab fa-telegram"></i>
+        <span>Telegram</span>
+      </a>
+      <a href="mailto:developersinthehouse@gmail.com" class="social-card">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </a>
+      <a href="https://x.com/Deve_lopers_?t=mwe4xTw3VEIA6mF2NjA0oQ&s=08 " target="_blank" class="social-card">
+       <i class="fi fi-brands-twitter-alt"></i></i>
+        <span>Twitter</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    BY: DEVELOPERS 💻 | Made with ❤️ for Class 11 Aspirants
+  </footer>
+
+  <!-- EmailJS SDK -->
+ <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // ==========================
+  // Glitch typing effect (Loader + Content)
+  // ==========================
+  const textElement = document.getElementById('text');
+  const loader = document.getElementById('loader');
+  const content = document.getElementById('content');
+  const message = "";
+  let index = 0;
+
+  function typeLetter() {
+    if (!textElement || !loader) return; // ✅ safety check
+    if (index < message.length) {
+      const char = message[index];
+      if (char === " ") {
+        textElement.innerHTML += "&nbsp;";
+      } else {
+        const span = document.createElement("span");
+        span.className = "glitch";
+        span.setAttribute("data-text", char);
+        span.textContent = char;
+        textElement.appendChild(span);
+      }
+      index++;
+      setTimeout(typeLetter, 100);
+    } else {
+      loader.classList.add('fade-out');
+      setTimeout(() => {
+        if (content) content.classList.add('visible');
+      }, 1000);
+    }
+  }
+
+  window.addEventListener('load', () => {
+    if (textElement) typeLetter();
+  });
+
+  // ==========================
+  // Navbar sticky toggle on scroll
+  // ==========================
+  (function () {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    const SCROLL_THRESHOLD = 40;
+    let ticking = false;
+
+    function updateNavbar() {
+      if (window.scrollY > SCROLL_THRESHOLD) {
+        navbar.classList.add('sticky');
+      } else {
+        navbar.classList.remove('sticky');
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateNavbar();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateNavbar();
+  })();
+
+  // ==========================
+  // Theme toggle + Accordion + Toast + Hero Fade
+  // ==========================
+  document.addEventListener("DOMContentLoaded", function () {
+    const body = document.body;
+    const toggle = document.getElementById("theme-toggle");
+    let circle = null;
+    if (toggle) {
+      circle = toggle.querySelector(".neon-circle");
+    }
+
+    // Accordion toggle
+    const headers = document.querySelectorAll('.accordion-header');
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        if (!content) return;
+        const isOpen = content.classList.contains('open');
+
+        document.querySelectorAll('.accordion-content').forEach(c => {
+          c.style.maxHeight = null;
+          c.classList.remove('open');
+          if (c.previousElementSibling) {
+            c.previousElementSibling.classList.remove('active');
+          }
+        });
+
+        if (!isOpen) {
+          content.classList.add('open');
+          header.classList.add('active');
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+
+    // Toast function
+    function showToast(message, duration = 3000) {
+      let toast = document.createElement("div");
+      toast.className = "toast";
+      toast.textContent = message;
+      document.body.appendChild(toast);
+
+      setTimeout(() => toast.classList.add("show"), 100);
+      setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 500);
+      }, duration);
+    }
+
+    // ✅ Theme toggle logic (safe)
+    if (toggle && circle) {
+      if (localStorage.getItem("dark-mode") === "true") {
+        body.classList.add("dark");
+        circle.classList.replace("sun", "moon");
+      } else {
+        body.classList.remove("dark");
+        circle.classList.replace("moon", "sun");
+      }
+
+      toggle.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        const isDark = body.classList.contains("dark");
+
+        localStorage.setItem("dark-mode", isDark);
+
+        if (isDark) circle.classList.replace("sun", "moon");
+        else circle.classList.replace("moon", "sun");
+
+        showToast("Effect will be shown on the next page.");
+      });
+    }
+
+    // Hero section fade-in effect
+    const heroSection = document.querySelector(".hero-section");
+    if (heroSection) {
+      setTimeout(() => {
+        heroSection.style.opacity = "1";
+      }, 1000);
+    }
+  });
+
+  // ==========================
+  // Responsive tweaks
+  // ==========================
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @media (max-width:600px){
+      #comment-section h2 { font-size:2rem; }
+      #comment-section input, #comment-section textarea { font-size:0.95rem; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // ==========================
+  // EmailJS Init + Contact Form Handling
+  // ==========================
+  (function () {
+    if (typeof emailjs !== "undefined") {
+      emailjs.init("RYYFC5RhmjDpeAxwv"); // 👈 apna public key daalna
+    } else {
+      console.warn("⚠️ EmailJS library not loaded!");
+    }
+  })();
+
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg = document.getElementById('error-msg');
+
+  if (successMsg) successMsg.style.display = 'none';
+  if (errorMsg) errorMsg.style.display = 'none';
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (successMsg) successMsg.style.display = 'block';
+      if (errorMsg) errorMsg.style.display = 'none';
+      form.reset();
+
+      setTimeout(() => {
+        if (successMsg) successMsg.style.display = 'none';
+        if (errorMsg) errorMsg.style.display = 'none';
+      }, 3000);
+    });
+  }
+
+</script>
+
+</body>
+</html>

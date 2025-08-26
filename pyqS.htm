@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Important Questions</title>
+   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+<style>
+    /* ===== IMPORT FONTS ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap');
+
+    /* ===== BASE STYLES ===== */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    body {
+      background: linear-gradient(120deg, #f9f9f9, #f0f4ff);
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    body.dark {
+      background: linear-gradient(120deg, #141e30, #243b55);
+      color: white;
+    }
+    body.dark p { color: white; }
+    body.dark button { color: white; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 40px;
+      flex-wrap: nowrap;
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Nata Sans', sans-serif;
+      letter-spacing: 1px;
+      color: #000;
+    }
+    body.dark .navbar .logo { color: #f5fbff; }
+    .navbar .menu {
+      display: flex;
+      position: relative;
+      gap: 28px;
+      align-items: center;
+      right: 75px;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: rgb(0, 35, 61);
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover { color: #38bdf8; }
+    body.dark .navbar a { color: #fff; }
+
+    /* ===== DROPDOWN MENU ===== */
+   /* Dropdown */
+.dropdown { position:relative; display:inline-block; }
+.dropdown button {
+  background:none; border:none; cursor:pointer;
+  font-weight:600; font-size:14px;
+  color: rgb(0,35,61); padding:10px 0;
+  transition: color 0.3s ease;
+}
+.dropdown button:hover { color:#38bdf8; }
+
+.dropdown-content {
+    position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 240px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.dropdown-content a {
+  display:flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #00233f;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+.dropdown-content a:hover { background: #ace0fc50 ;
+  transform: translateX(8px); color: black;}
+.dropdown:hover .dropdown-content { opacity:1; pointer-events:auto; max-height:500px; }
+
+
+.dropdown-content a i {
+  font-size: 12px;
+  color: #0ea5e9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.dropdown-content a:hover i {
+  transform: rotate(15deg) scale(1.2);
+  color: #ff00bf;
+}
+
+
+    body.dark .dropdown-content { background:#1c1c1c; box-shadow:0 4px 8px rgba(255,255,255,0.2); }
+    body.dark .dropdown-content a { color:#f0f0f0; }
+    body.dark .dropdown-content a:hover { background:#0072ff1f; color:#fff; }
+
+    /* ===== DARK MODE TOGGLE ===== */
+    .neon-toggle {
+      position:absolute; right:28px; top:18px; width:64px; height:34px;
+      border-radius:50px;
+      background: linear-gradient(135deg,#00d4ff,#0072ff);
+      box-shadow:0 0 10px rgba(0,162,255,0.6), inset 0 0 8px rgba(255,255,255,0.3);
+      cursor:pointer; transition:0.4s; overflow:hidden;
+    }
+        .arrow{
+      display:inline-block;
+      transition: transform 0.5s ease;
+    }
+    .dropdown:hover{
+
+transform: rotate(180deg);
+
+    }    .arrow{
+      display:inline-block;
+      transition: transform 0.5s ease;
+    }
+    .dropdown:hover .arrow{
+
+transform: rotate(180deg);
+
+    }
+    body.dark .neon-toggle {
+      background: linear-gradient(135deg,#22d3ee,#8b5cf6);
+      box-shadow:0 0 12px rgba(138,43,226,0.7), inset 0 0 6px rgba(255,255,255,0.2);
+    }
+    .neon-circle { position:absolute; top:3px; left:3px; width:28px; height:28px; border-radius:50%; display:flex;   background:#fff; color:#fbbf24;align-items:center; justify-content:center; font-size:17px; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:0.4s; }
+    .sun::before { content:"☀️"; } .moon::before { content:"🌙"; }
+    body.dark .neon-circle { transform:translateX(30px); background:#111; color:#facc15; }
+
+    /* ===== INDEX SECTION ===== */
+    .questions-index { text-align:center; padding:70px 20px; }
+    .questions-index h1 {
+      font-size:2.6rem; margin-bottom:12px; font-weight:700;
+      background-image: linear-gradient(90deg, #2563eb, #06b6d4, #10b981);
+      background-clip: text; -webkit-background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+      display:inline-block;
+    }
+    .questions-index p { margin-bottom:40px; color:#555; font-size:1.1rem; }
+
+    /* ===== CHAPTER CARDS ===== */
+    .chapters-list {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:20px;
+      max-width:1000px;
+      margin:0 auto;
+    }
+    .chapter-card {
+      padding:20px;
+      border-radius:14px;
+      text-decoration:none;
+      font-size:1.15rem;
+      font-weight:500;
+      color:#222;
+      background: linear-gradient(135deg,#fff,#f1f5f9);
+      border:1px solid rgba(0,0,0,0.05);
+      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .chapter-card i { font-size:1.3rem; opacity:0.8; color:#2563eb; }
+    .chapter-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      background: linear-gradient(135deg,#eef6ff,#e0f7f4);
+    }
+    body.dark .chapter-card {
+      background: linear-gradient(135deg, rgba(56,189,248,0.2), rgba(6,214,160,0.2));
+      border:1px solid rgba(255,255,255,0.1); color:white; backdrop-filter:blur(8px);
+    }
+    body.dark .chapter-card:hover {
+      box-shadow:0 8px 24px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, rgba(56,189,248,0.4), rgba(6,214,160,0.4));
+    }
+
+    /* ===== MEDIA QUERIES ===== */
+    @media screen and (max-width:900px) {
+      .navbar { padding:14px 20px; }
+      .navbar .menu { display:none; gap:0; flex-direction:column; position:absolute; top:60px; right:20px; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); border-radius:10px; padding:15px 20px; z-index:1000; }
+      body.dark .navbar .menu { background: rgba(0,0,0,0.7); }
+    }
+    @media screen and (max-width:600px) {
+      .questions-index h1 { font-size:2rem; }
+      .questions-index p { font-size:1rem; }
+      .chapters-list { grid-template-columns:1fr; gap:16px; margin:0 10px; }
+    }
+</style>
+</head>
+<body>
+ <nav class="navbar">
+    <div class="logo"><i class="fi fi-ss-book-open-cover" style="position: relative; left: -2px; top: 3px;"></i> Class 11 Mathematics</div>
+
+    <div class="menu">
+      <a href="index.htm">Home</a>
+      <div class="dropdown">
+          <button>Extras <span  claass="arrow">▾</span></button>
+        <div class="dropdown-content">
+          <a href="#"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm">About</a>
+    </div>
+
+
+    <div class="neon-toggle" id="theme-toggle">
+      <div class="neon-circle sun"></div>
+    </div>
+  </nav>
+
+  <section class="questions-index">
+    <h1>Chapterwise PYQs</h1>
+    <p>Select a chapter to view its past 43 years questions:</p>
+
+    <div class="chapters-list">
+      <a href="Sets.pdf" class="chapter-card">Chapter 1 – SETS <i class="fi fi-sr-link"></i></a>
+      <a href="f(x).pdf" class="chapter-card">Chapter 2 – RELATIONS & FUNCTIONS <i class="fi fi-sr-share"></i></a>
+      <a href="trig.pdf" class="chapter-card">Chapter 3 – TRIGONOMETRIC FUNCTIONS <i class="fi fi-sr-triangle"></i></a>
+      <a href="complex.pdf" class="chapter-card">Chapter 4 – COMPLEX NUMBERS <i class="fi fi-sr-circle"></i></a>
+      <a href="Exercise 1.docx" class="chapter-card">Chapter 5 – LINEAR INEQUALITIES <i class="fi fi-sr-arrows"></i></a>
+      <a href="permutations .pdf" class="chapter-card">Chapter 6 – PERMUTATIONS & COMBINATIONS <i class="fi fi-sr-dice"></i></a>
+      <a href="Binomial.pdf" class="chapter-card">Chapter 7 – BINOMIAL THEOREM <i class="fi fi-sr-chart-histogram"></i></a>
+      <a href="Series.pdf" class="chapter-card">Chapter 8 – SEQUENCES & SERIES <i class="fi fi-sr-numbers"></i></a>
+      <a href="straightline.pdf" class="chapter-card">Chapter 9 – STRAIGHT LINES <i class="fi fi-sr-minus"></i></a>
+      <a href="conics.pdf" class="chapter-card">Chapter 10 – CONIC SECTIONS <i class="fi fi-sr-circle-small"></i></a>
+      <a href="3d geometry.pdf" class="chapter-card">Chapter 11 – INTRO TO 3D GEOMETRY <i class="fi fi-sr-cube"></i></a>
+      <a href="limits.pdf" class="chapter-card">Chapter 12 – LIMITS & DERIVATIVES <i class="fi fi-sr-chart-line-up"></i></a>
+      <a href="Statistics.pdf" class="chapter-card">Chapter 13 – STATISTICS <i class="fi fi-sr-chart-pie"></i></a>
+      <a href="probability.pdf" class="chapter-card">Chapter 14 – PROBABILITY <i class="fi fi-sr-dice-d20"></i></a>
+    </div>
+  </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const body = document.body;
+  const toggle = document.getElementById("theme-toggle");
+  const circle = toggle.querySelector(".neon-circle"); 
+
+  // Theme load from localStorage
+  if(localStorage.getItem("dark-mode") === "true") {
+    body.classList.add("dark");
+    circle.classList.replace("sun","moon");
+  } else {
+    body.classList.remove("dark");
+    circle.classList.replace("moon","sun");
+  }
+
+  // Theme toggle
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    const isDark = body.classList.contains("dark");
+    localStorage.setItem("dark-mode", isDark);
+    if(isDark) circle.classList.replace("sun","moon");
+    else circle.classList.replace("moon","sun");
+  });
+
+
+});
+
+
+</script>
+</body>
+</html>
