@@ -661,22 +661,7 @@ footer {
 
 
 
- <section id="contact-section" style="padding:80px 20px; display:flex; justify-content:center; align-items:center;">
-  <div class="contact-container" style="max-width:500px; background: rgba(255,255,255,0.05); padding:40px; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.3);">
-    <h2 style="text-align:center; font-size:28px; font-weight:600; color:#00233f; margin-bottom:15px;">Mail Us</h2>
-    <p style="text-align:center; font-size:14px; color:#666; margin-bottom:25px;">We’d love to hear from you! Send us a mail below.
-      <br>
-      Feel free to share all your thoughts and suggestions related to the website. If you have any complaints then you can do the same.
-    </p>
-    <form id="contact-form">
-      <input type="text" name="user_name" placeholder="Your Name" required style="width:100%; padding:14px; margin:10px 0; border-radius:12px; border:1px solid #ddd; font-size:15px; transition:0.3s ease;">
-      <input type="email" name="user_email" placeholder="Your Email" required style="width:100%; padding:14px; margin:10px 0; border-radius:12px; border:1px solid #ddd; font-size:15px; transition:0.3s ease;">
-      <textarea name="message" placeholder="Your Message" required style="width:100%; padding:14px; margin:10px 0; border-radius:12px; border:1px solid #ddd; font-size:15px; transition:0.3s ease; resize:none; height:120px;"></textarea>
-      <button type="submit" >Send Mail</button>
-    </form>
-    <div id="form-status" style="text-align:center; margin-top:15px;"></div>
-  </div>
-</section>
+<div id="comments"></div>
 
 <!-- Connect With Us Section -->
 <section class="connect" id="connect">
@@ -905,7 +890,22 @@ footer {
     });
   }
 
+   // Auto-switch theme with user’s OS theme
+  const theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'github-dark'
+    : 'github-light';
+
+  const s = document.createElement('script');
+  s.src = 'https://utteranc.es/client.js';
+  s.setAttribute('repo', 'YOUR_GITHUB_USERNAME/YOUR_REPO'); // <-- change this
+  s.setAttribute('issue-term', 'pathname'); // one thread per unique URL path
+  s.setAttribute('label', 'comments');
+  s.setAttribute('theme', theme);
+  s.crossOrigin = 'anonymous';
+  s.async = true;
+  document.querySelector('#comments').appendChild(s);
 </script>
 
 </body>
 </html>
+
