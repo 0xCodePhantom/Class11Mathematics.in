@@ -1,0 +1,1365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 11 Mathematics</title>
+  <link rel="icon" href="dv_logo.jpg">
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+/* =========================
+   RESET & FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   BASE BODY STYLES
+========================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #00233f;
+  position: relative;
+  background: linear-gradient(to right, #e0f7fa, #ffffff);
+  overflow-x: hidden;
+}
+
+/* Gradient overlay animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(60deg, #ff0080, #7928ca, #00c3ff, #ffbe00);
+  background-size: 600% 600%;
+  animation: gradientBG 20s ease infinite;
+  z-index: -1;
+  opacity: 0.15;
+}
+
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* ===== DARK MODE TOGGLE ===== */
+    .neon-toggle {
+      position:absolute; right:28px; top:18px; width:64px; height:34px;
+      border-radius:50px;
+      background: linear-gradient(135deg,#00d4ff,#0072ff);
+      box-shadow:0 0 10px rgba(0,162,255,0.6), inset 0 0 8px rgba(255,255,255,0.3);
+      cursor:pointer; transition:0.4s; overflow:hidden;
+    }
+    body.dark .neon-toggle {
+     background: linear-gradient(135deg,#22d3ee,#8b5cf6);
+      box-shadow:0 0 12px rgba(138,43,226,0.7), inset 0 0 6px rgba(255,255,255,0.2);
+    }
+    .neon-circle { position:absolute; top:3px; left:3px; width:28px; height:28px; border-radius:50%;   background:#fff; color:#fbbf24; display:flex; align-items:center; justify-content:center; font-size:17px; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:0.4s; }
+    .sun::before { content:"☀️"; } .moon::before { content:"🌙"; }
+    body.dark .neon-circle { transform:translateX(30px); background:#111; color:#facc15; }
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 40px;
+  flex-wrap: nowrap;
+  backdrop-filter: blur(8px);
+  position: sticky; top:0;
+  z-index:1000;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Nata Sans' sans-serif;
+  letter-spacing:1px;
+  color:#000;
+}
+
+
+    .navbar .logo span{
+      font-family: 'Nata Sans';
+    }
+
+.navbar .menu {
+  display:flex;
+  gap:28px;
+  align-items:center;
+  position:relative;
+  right:75px;
+}
+
+.navbar a {
+  text-decoration:none;
+  color: rgb(0,35,61);
+  font-weight:600; font-size:14px;
+  transition: color 0.3s ease;
+}
+.navbar a:hover { color:#38bdf8; }
+
+/* Dropdown */
+.dropdown { position:relative; display:inline-block; }
+.dropdown button {
+  background:none; border:none; cursor:pointer;
+  font-weight:600; font-size:14px;
+  color: rgb(0,35,61); padding:10px 0;
+  transition: color 0.3s ease;
+}
+.dropdown button:hover { color:#38bdf8; }
+
+.dropdown-content {
+    position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 240px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.dropdown-content a {
+  display:flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #00233f;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+.dropdown-content a:hover { background: #ace0fc50 ;
+  transform: translateX(8px); color: black;}
+.dropdown:hover .dropdown-content { opacity:1; pointer-events:auto; max-height:500px; }
+
+
+.dropdown-content a i {
+  font-size: 12px;
+  color: #0ea5e9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.dropdown-content a:hover i {
+  transform: rotate(15deg) scale(1.2);
+  color: #ff00bf;
+}
+
+.arrow{
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.dropdown:hover .arrow{
+  transform: rotate(180deg);
+}
+/* =========================
+   HERO SECTION
+========================= */
+.hero-section {
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  text-align:center;
+  height: calc(100vh - 80px);
+  font-family: 'Orbitron', sans-serif;
+  padding:0 20px;
+  animation: fadeIn 2s ease forwards;
+  opacity:0;
+}
+.hero-section h1 {
+  font-size:3.5rem;
+  background: linear-gradient(90deg,#03ccd3,#01ca55,#ff00bf);
+  background-clip:text; -webkit-background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+  margin-bottom:20px;
+}
+.hero-section p {
+  font-size:1.5rem; color:#00233f; margin-bottom:40px;
+}
+.cta-button {
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg,#00d4ff,#0072ff);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,212,255,0.5);
+       /* ensure text is centered */
+}
+.cta-button:hover { transform:scale(1.05); box-shadow:0 6px 20px rgba(0,212,255,0.6); }
+
+@keyframes fadeIn { to {opacity:1;} }
+
+/* =========================
+   FLOATING SHAPES (GLOBAL)
+========================= */
+.floating-shape {
+  position:absolute;
+  border-radius:50%;
+  opacity:0.2;
+  animation: float 10s ease-in-out infinite;
+  z-index:0;
+}
+.shape1 { width:100px;height:100px;background:#ff00bf;top:10%;left:15%;animation-delay:0s;}
+.shape2 { width:150px;height:150px;background:#00d4ff;top:60%;left:70%;animation-delay:3s;}
+.shape3 { width:80px;height:80px;background:#ffbe00;top:40%;left:50%;animation-delay:5s;}
+@keyframes float {0%{transform:translateY(0) translateX(0);}50%{transform:translateY(-30px) translateX(20px);}100%{transform:translateY(0) translateX(0);}}
+
+/* =========================
+   WHY PLATFORM SECTION
+========================= */
+#why-platform { padding:80px 20px; max-width:1200px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+#why-platform h2 {
+  font-size:3rem; font-family:'Nata Sans'; margin-bottom:30px;
+  background: linear-gradient(90deg,#03ccd3,#01ca55,#ff00bf);
+  background-clip:text; -webkit-background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+}
+#why-platform p { font-size:1.3rem; color:#00233f; max-width:800px; margin:0 auto 50px auto; }
+#why-platform .features {
+  display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:30px; margin-top:20px;
+}
+#why-platform .feature-card {
+  background: rgba(255,255,255,0.05);
+  padding:30px 20px; border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor:pointer; position:relative; overflow:hidden;
+}
+#why-platform .feature-card i {
+  font-size:2.5rem; margin-bottom:15px; transition: transform 0.3s ease, color 0.3s ease;
+}
+#why-platform .feature-card h3 { font-size:1.4rem; margin-bottom:10px; color:#00233f; }
+#why-platform .feature-card p { font-size:1rem; color:#00233f; }
+#why-platform .feature-card:hover { transform: translateY(-10px) scale(1.05); box-shadow:0 15px 30px rgba(0,0,0,0.5); background: rgba(255,255,255,0.1);}
+#why-platform .feature-card:hover i { transform: rotate(10deg) scale(1.2); color:#ff00bf; }
+
+/* =========================
+   VALUE SECTION
+========================= */
+#value-section { padding:80px 20px; max-width:900px; margin:0 auto; text-align:center; }
+#value-section h2 {
+  font-size:3rem; font-family:'Nata Sans'; margin-bottom:40px;
+  background: linear-gradient(90deg,#ff7a18,#af002d,#319197);
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+}
+#value-section ol { list-style:none; counter-reset:value-counter; padding-left:0; }
+#value-section ol li {
+  counter-increment:value-counter; margin-bottom:40px;
+  text-align:left; position:relative; padding-left:60px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+#value-section ol li span {
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff7a18, #af002d, #319197);
+   background-clip: text; -webkit-background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+
+}
+#value-section ol li h3 { margin:0 0 8px 0; font-size:1.5rem; color:#00233f; }
+#value-section ol li p { margin:0; color:#00233f; font-size:1.1rem; }
+#value-section ol li:hover { transform:translateX(5px); }
+
+/* =========================
+   COMMENT SECTION
+========================= */
+.comment { color:#333; font-size:10px; }
+#comment-section h2 {
+  font-size:2.5rem; font-family:'Nata Sans'; margin-bottom:30px;
+  background: linear-gradient(90deg,#ff7a18,#af002d,#319197);
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent; -webkit-text-fill-color:transparent;
+  letter-spacing:1px;
+}
+#comment-form input, #comment-form textarea {
+  padding:12px 15px; border-radius:8px; border:1px solid #ccc; font-size:1rem;
+}
+#comment-form button {
+  padding:12px 25px; border:none; border-radius:50px; background: linear-gradient(135deg,#00d4ff,#0072ff);
+  color:#fff; font-weight:600; cursor:pointer; transition:all 0.3s ease;
+}
+#comments-container div { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  color:#000; opacity:0.7; text-align:center;
+  position:relative; margin-top:auto; z-index:1;
+  padding:15px 10px; font-size:0.85rem;
+}
+
+/* =========================
+   TOAST
+========================= */
+.toast {
+  position:fixed; bottom:30px; right:30px;
+  background: rgba(0,0,0,0.85); color:#fff;
+  padding:14px 22px; border-radius:8px; font-size:1rem;
+  opacity:0; pointer-events:none; transform:translateY(20px);
+  transition:opacity 0.5s ease, transform 0.5s ease;
+  z-index:9999;
+}
+.toast.show { opacity:1; pointer-events:auto; transform:translateY(0); }
+
+
+.connect {
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.connect-container {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.connect-title {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #002255;
+  letter-spacing: 1px;
+}
+
+.connect-subtitle {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  color: rgb(77, 77, 77);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: #002b5c;
+  font-size: 0.9rem;
+}
+
+.social-card i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.social-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.3), 0 0 40px rgba(0, 162, 255, 0.4);
+}
+
+
+/* =========================
+   RESPONSIVE MEDIA QUERIES
+========================= */
+/* Small devices (phones) */
+@media (max-width:600px){
+  .hero-section h1 { font-size:2rem; line-height:1.3; }
+  .hero-section p { font-size:1rem; margin-bottom:25px; }
+  .cta-button { padding:10px 20px; font-size:0.9rem; }
+  .dropdown-content { min-width:200px; }
+  #why-platform h2, #value-section h2 { font-size:2rem; }
+  #why-platform p, #value-section ol li p { font-size:0.95rem; }
+  #why-platform .features { grid-template-columns:1fr; }
+  #value-section ol li { padding-left:40px; }
+  #value-section ol li span { font-size:1.5rem; }
+  .floating-shape { opacity:0.2; }
+}
+
+/* Mobile Navbar Logo Adjustment */
+@media (max-width:600px) {
+  .navbar .logo {
+    font-size: 20px; /* smaller font */
+  }
+  .navbar .logo i {
+    font-size: 20px; /* smaller icon */
+    top: 2px; /* adjust vertical alignment */
+  }
+  /* Change text from "Class 11 Mathematics" to "11th Maths" */
+  .navbar .logo::after {
+    content: "11th Maths";
+    font-family: 'Nata Sans', sans-serif;
+  }
+  /* Hide the original text on mobile */
+  .navbar .logo span {
+    display: none;
+  }
+}
+
+
+/* Medium devices (tablets) */
+@media (min-width:601px) and (max-width:900px){
+  .hero-section h1 { font-size:2.5rem; }
+  .hero-section p { font-size:1.2rem; }
+  .cta-button { padding:12px 28px; font-size:1rem; }
+  #why-platform h2, #value-section h2 { font-size:2.5rem; }
+  #why-platform .features { grid-template-columns: repeat(2,1fr); gap:20px; }
+  #value-section ol li { padding-left:50px; }
+  #value-section ol li span { font-size:1.8rem; }
+}
+
+/* Large devices (desktop) */
+@media (min-width:901px){
+  .hero-section h1 { font-size:3.5rem; }
+  .hero-section p { font-size:1.5rem; }
+  .cta-button { padding:14px 32px; font-size:1rem; }
+  #why-platform h2, #value-section h2 { font-size:3rem; }
+  #why-platform .features { grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); }
+  #value-section ol li span { font-size:2rem; }
+}
+
+ .contact-container {
+     background: rgba(255,255,255,0.05);
+  padding:30px 20px; border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  cursor:pointer; position:relative; overflow:hidden;
+
+      
+    }
+
+    .contact-container h2 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #333;
+    }
+
+    .contact-container p {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+      transition: 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #6c63ff;
+      outline: none;
+      box-shadow: 0px 0px 5px rgba(108, 99, 255, 0.4);
+    }
+
+    form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+  .contact-container  button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg,#00d4ff,#0072ff);
+      color: #fff;
+      display: flex; 
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,212,255,0.5);
+      justify-content:center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+   .contact-container button:hover {
+     transform:scale(1.05); box-shadow:0 6px 20px rgba(0,212,255,0.6);
+    }
+
+    .success {
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+      font-weight: 500;
+    }
+
+    .error {
+      text-align: center;
+      margin-top: 15px;
+      color: red;
+      font-weight: 500;
+    }
+
+
+   .chapter-card {
+      background:transparent;
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      margin-bottom:10px ;
+      margin: 10px auto;
+      width: 90%;
+      display: block;
+  max-width: 900px;
+      min-height: 60px;
+      overflow: auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    .chapter-card:hover{
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      
+    }
+    .chapter-header {
+      padding: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+       background: rgba(255, 255, 255, 0.081);
+      backdrop-filter: blur(10px);
+    }
+    .chapter-content {
+      max-height: 0;
+      margin: 5px;
+      overflow: auto;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+      padding: 0 1rem;
+      
+    }
+    .chapter-content.open {
+      padding: 1rem;
+    }
+    .chapter-header span {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.chapter-header span.rotate {
+  transform: rotate(180deg);
+}
+.chapter-content ul {
+  list-style-type: none;   /* default bullet style */
+  padding-left: 20px;      /* thoda gap left side */
+  margin: 10px 0;
+}
+.chapter-content li::before {
+  content: "🔸 ";   /* icon here */
+}
+.chapter-content li {
+  margin: 4px 0;  /* line spacing for neatness */
+}
+.acc{
+  display: block; margin: 20px auto; font-weight: 800px; font-size: 25px; text-align: center;
+  text-decoration: underline #333;
+
+}
+
+
+    /* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #00233f;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+body.dark .hamburger span {
+  background: #fff;
+}
+
+/* Hamburger animation */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Show hamburger on mobile */
+@media screen and (max-width:900px){
+  .hamburger {
+    display: flex;
+  }
+  .navbar .menu {
+    display: none;
+  }
+  .navbar .menu.active {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    padding: 15px 20px;
+    z-index: 1000;
+  }
+  body.dark .navbar .menu.active {
+    background: rgba(0,0,0,0.7);
+  }
+}
+
+/* ====== COOL GLASS BOTTOM NAVBAR ====== */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 20px;               /* lifted from bottom */
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  width: 95%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.15); /* transparent glass */
+  backdrop-filter: blur(12px) saturate(180%); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 25px;       /* rounded corners */
+  justify-content: space-around;
+  padding: 12px 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.bottom-nav a, .bottom-nav .dropdown button {
+  color: #002341;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 0 10px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.bottom-nav a:hover, .bottom-nav .dropdown button:hover {
+  color: #38bdf8;
+}
+
+/* Dropdown content above the button */
+.bottom-nav .dropdown-content {
+  bottom: 100%;  /* show above */
+  top: auto;
+  right: 0;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.bottom-nav .dropdown:hover .dropdown-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-5px);
+}
+
+/* Dropdown items */
+.bottom-nav .dropdown-content a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #00233f;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.bottom-nav .dropdown-content a:hover {
+  background: #ace0fc50;
+  transform: translateX(8px);
+  color: black;
+}
+.bottom-nav .dropdown-content a i {
+  font-size: 12px;
+  color: #0ea5e9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.bottom-nav .dropdown-content a:hover i {
+  transform: rotate(15deg) scale(1.2);
+  color: #ff00bf;
+}
+
+/* Show bottom navbar only on mobile */
+@media screen and (max-width: 768px){
+  .bottom-nav {
+    display: flex;
+  }
+  .navbar .menu { display: none !important; } /* hide top menu */
+}
+
+.bottom-nav a i {
+  font-size: 20px;
+  margin-bottom: 3px;
+  transition: color 0.3s;
+}
+.bottom-nav a:hover i,
+.bottom-nav a:hover { color: #38bdf8; }
+
+
+
+/* ====== MOBILE TOGGLE ADJUSTMENTS ====== */
+@media (max-width: 768px) {
+  .neon-toggle {
+    position: fixed; /* stay visible on scroll */
+    top: 10px;       /* small top margin */
+    right: 10px;     /* small right margin */
+    width: 48px;     /* smaller width */
+    height: 26px;    /* smaller height */
+    z-index: 1100;   /* above bottom nav and other elements */
+  }
+  .neon-circle {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar left as is -->
+  <nav class="navbar">
+    <div class="logo"><i class="fi fi-ss-book-open-cover" style="position: relative; left: -2px; top: 3px;"></i> <span>Class 11 Mathematics</span></div>
+    <div class="menu">
+      <a href="index.htm">Home</a>
+      <div class="dropdown">
+        <button>Extras<span class="arrow">▾</span></button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+     <a href="About_Page.htm">About</a>
+    </div>
+    <div class="neon-toggle" id="theme-toggle">
+      <div class="neon-circle sun"></div>
+    </div>
+</nav>
+
+<!-- BOTTOM NAVBAR FOR MOBILE -->
+<div class="bottom-nav">
+  <a href="index.htm"><i class="fi fi-ss-home" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i> Home</a>
+      <div class="dropdown">
+        <button>✨ Extras <span class="arrow">▾</span></button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm"> <i class="fi fi-ss-user" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i>About</a>
+</div>
+
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <h1>Unlock Knowledge. Build the Future.</h1>
+    <p>A smart space for learners who aim higher. Curated notes, deep insights, and clear explanations — everything you need to stay ahead.</p>
+    <button class="cta-button" onclick="window.location.href='tabs.htm'">Start Learning </button>
+  </div>
+
+
+
+
+  <!-- Floating shapes -->
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+  <div class="floating-shape shape3"></div>
+<!-- Why This Platform Section -->
+<section id="why-platform" style="padding:80px 20px; max-width:1200px; margin:0 auto; text-align:center; position:relative; z-index:1;">
+
+  <h2 style="font-size:3rem; font-family:'Nata Sans', sans-serif; margin-bottom:30px; 
+      background: linear-gradient(90deg, #03ccd3, #01ca55, #ff00bf); 
+        background-clip: text;           /* standard */
+  -webkit-background-clip: text;   /* Safari/Webkit */
+  color: transparent;               /* fallback */
+  -webkit-text-fill-color: transparent; /* Safari/Webkit */ letter-spacing:1px;">
+    Why Choose This Platform?
+  </h2>
+
+  <p style="font-size:1.3rem; color:#00233f; max-width:800px; margin:0 auto 50px auto;">
+    Our platform provides interactive resources, solved examples, past questions, and real-time guidance to make Class 11 Mathematics simple, engaging, and topper-friendly.
+  </p>
+
+  <div class="features" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:30px; margin-top:20px;">
+    <div class="feature-card" style="background: rgba(255,255,255,0.05); padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;">
+      <i class="fi fi-ss-book" style="font-size:2.5rem; margin-bottom:15px; color:#03ccd3;"></i>
+      <h3 style="font-size:1.4rem; margin-bottom:10px; color:#00233f;">Comprehensive Content</h3>
+      <p style="font-size:1rem; color:#00233f;">All chapters explained with clarity, examples, and exercises for maximum understanding.</p>
+    </div>
+    <div class="feature-card" style="background: rgba(255,255,255,0.05); padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;">
+      <i class="fi fi-ss-layers" style="font-size:2.5rem; margin-bottom:15px; color:#ff00bf;"></i>
+      <h3 style="font-size:1.4rem; margin-bottom:10px; color:#00233f;">Past Questions</h3>
+      <p style="font-size:1rem; color:#00233f;">Access 43 years of solved CBSE questions to practice effectively and score higher.</p>
+    </div>
+    <div class="feature-card" style="background: rgba(255,255,255,0.05); padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;">
+      <i class="fi fi-ss-document" style="font-size:2.5rem; margin-bottom:15px; color:#ffbe00;"></i>
+      <h3 style="font-size:1.4rem; margin-bottom:10px; color:#00233f;">Interactive Resources</h3>
+      <p style="font-size:1rem; color:#00233f;">Animations, diagrams, and problem-solving steps to boost comprehension and retention.</p>
+    </div>
+    <div class="feature-card" style="background: rgba(255,255,255,0.05); padding:30px 20px; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;">
+      <i class="fi fi-ss-light-bulb" style="font-size:2.5rem; margin-bottom:15px; color:#01ca55;"></i>
+      <h3 style="font-size:1.4rem; margin-bottom:10px; color:#00233f;">Smart Learning</h3>
+      <p style="font-size:1rem; color:#00233f;">Focus on important concepts, time-saving tips, and smart learning strategies for exams.</p>
+    </div>
+  </div>
+
+  <!-- Optional floating math icons for this section -->
+  <div class="floating-shape" style="width:60px; height:60px; background:#03ccd3; top:5%; left:5%;"></div>
+  <div class="floating-shape" style="width:80px; height:80px; background:#ff00bf; top:70%; left:80%;"></div>
+  <div class="floating-shape" style="width:50px; height:50px; background:#ffbe00; top:40%; left:20%;"></div>
+
+</section>
+<!-- Value Section - Ordered Points Design -->
+<section id="value-section">
+  <h2>For Students Who Want More Than Average</h2>
+
+  <ol>
+    <li>
+      <span>1</span>
+      <h3>Building Strong Fundamentals</h3>
+      <p>Master core concepts deeply so that advanced topics become easy to grasp.</p>
+    </li>
+    <li>
+      <span>2</span>
+      <h3>Developing Problem-Solving Confidence</h3>
+      <p>Approach problems strategically and gain the confidence to solve tough questions.</p>
+    </li>
+    <li>
+      <span>3</span>
+      <h3>Preparing for Exams Without Last-Minute Panic</h3>
+      <p>Plan and revise systematically to stay calm and confident before exams.</p>
+    </li>
+    <li>
+      <span>4</span>
+      <h3>Growing Curiosity Beyond the Syllabus</h3>
+      <p>Explore concepts beyond textbooks and nurture curiosity that sets you apart.</p>
+    </li>
+  </ol>
+</section>
+<span class="acc" >Class 11 Mathematics – Chapter Breakdown</span>
+
+  <div class="container">
+    <div class="chapter-card">
+  <div class="chapter-header">Chapter 1: Sets <span>+</span></div>
+  <div class="chapter-content">
+    <ul>
+      <li>Sets and their representations</li>
+      <li>Subsets</li>
+      <li>Power set</li>
+      <li>Universal set</li>
+      <li>Venn diagrams</li>
+      <li>Union and intersection of sets</li>
+      <li>Complement of a set</li>
+      <li>Difference of sets</li>
+    </ul>
+  </div>
+</div>
+
+<div class="chapter-card">
+  <div class="chapter-header">Chapter 2: Relations and Functions <span>+</span></div>
+  <div class="chapter-content">
+    <ul>
+      <li>Ordered pairs</li>
+      <li>Cartesian product of sets</li>
+      <li>Relations</li>
+      <li>Functions</li>
+      <li>Domain, co-domain and range</li>
+    </ul>
+  </div>
+</div>
+
+<div class="chapter-card">
+  <div class="chapter-header">Chapter 3: Trigonometric Functions <span>+</span></div>
+  <div class="chapter-content">
+    <ul>
+      <li>Positive and negative angles</li>
+      <li>Measurement of angles in radians</li>
+      <li>Trigonometric functions with real numbers</li>
+      <li>Domain and range of trigonometric functions</li>
+      <li>Graph of trigonometric functions</li>
+      <li>General solutions of trigonometric equations</li>
+    </ul>
+  </div>
+</div>
+
+<div class="chapter-card">
+  <div class="chapter-header">Chapter 4: Complex Numbers and Quadratic Equations <span>+</span></div>
+  <div class="chapter-content">
+    <ul>
+      <li>Need for complex numbers</li>
+      <li>Imaginary unit and representation</li>
+      <li>Algebra of complex numbers</li>
+      <li>Polar representation of complex numbers</li>
+      <li>Quadratic equations and their roots</li>
+      <li>Nature of roots</li>
+    </ul>
+  </div>
+</div>
+
+<div class="chapter-card">
+  <div class="chapter-header">Chapter 5: Linear Inequalities <span>+</span></div>
+  <div class="chapter-content">
+    <ul>
+      <li>Linear inequalities in one variable</li>
+      <li>Graphical solution of linear inequalities in two variables</li>
+      <li>Solution set of inequalities</li>
+    </ul>
+  </div>
+</div>
+
+<div class="chapter-card">
+  <div class="chapter-header">Chapter 6: Permutations and Combinations <span>+</span></div>
+  <div class="chapter-content">
+    <ul>
+      <li>Fundamental principle of counting</li>
+      <li>Factorial notation</li>
+      <li>Permutations</li>
+      <li>Combinations</li>
+      <li>Simple applications</li>
+    </ul>
+  </div>
+</div>
+
+<div class="chapter-card">
+  <div class="chapter-header">Chapter 7: Binomial Theorem <span>+</span></div>
+  <div class="chapter-content">
+    <ul>
+      <li>Binomial theorem for positive integral indices</li>
+      <li>General term of binomial expansion</li>
+      <li>Middle term(s)</li>
+      <li>Simple applications</li>
+    </ul>
+  </div>
+</div>
+
+<div class="chapter-card">
+  <div class="chapter-header">Chapter 8: Sequences and Series <span>+</span></div>
+  <div class="chapter-content">
+    <ul>
+      <li>Arithmetic progression (A.P.)</li>
+      <li>Geometric progression (G.P.)</li>
+      <li>General term of a sequence</li>
+      <li>Sum of n terms of A.P. and G.P.</li>
+      <li>Relationship between A.M. and G.M.</li>
+    </ul>
+  </div>
+</div>
+    <div class="chapter-card">
+      <div class="chapter-header">Chapter 9: Straight Lines <span>+</span></div>
+      <div class="chapter-content">
+          <ul type="circle">
+            <li>Slope of a Line</li>
+            <li>Various forms of the Equations of a Line</li>
+            <li>Distance of a point from a Line</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">Chapter 10: Conic Sections <span>+</span></div>
+      <div class="chapter-content">
+          <ul type="circle">
+            <li>Sections of a Cone</li>
+            <li>Circle</li>
+          </ul>
+      </div>
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">Chapter 11: Introduction to 3D Geometry <span>+</span></div>
+      <div class="chapter-content">
+          <ul type="circle">
+            <li>Coordinate Axes and Coordinate Planes in 3D Space</li>
+            <li>Coordinate of a Point in Space</li>
+            <li>Distance between two Points</li>
+          </ul>
+      </div>
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">Chapter 12: Limits and Derivatives <span>+</span></div>
+      <div class="chapter-content">
+          <ul type="circle">
+            <li>Intuitive Idea of  Derivatives</li>
+            <li>Limits</li>
+            <li>Limits of Trigonometic Functions</li>
+          </ul>
+      </div>
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">Chapter 13: Statistics <span>+</span></div>
+      <div class="chapter-content">
+          <ul type="circle">
+            <li>Measures of Dispersion</li>
+            <li>Range</li>
+            <li>Mean Division</li>
+            <li>Variance and Standard Deviation</li>
+          </ul>
+      </div>
+    </div>
+    <div class="chapter-card">
+      <div class="chapter-header">Chapter 14: Probability <span>+</span></div>
+      <div class="chapter-content">
+          <ul type="circle">
+            <li>Event</li>
+            <li>Axiomatic Approach to Probability</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+<div id="comments"></div>
+
+<!-- Connect With Us Section -->
+<section class="connect" id="connect">
+  <div class="connect-container">
+    <h2 class="connect-title">Connect With Us</h2>
+    <p class="connect-subtitle">Stay in touch through your favorite platform</p>
+    <div class="social-links">
+      <a href="https://whatsapp.com/channel/0029Vb67nwrFCCoY9N9oBi2t" target="_blank" class="social-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+      <a href="https://t.me/deve_lopers" target="_blank" class="social-card">
+        <i class="fab fa-telegram"></i>
+        <span>Telegram</span>
+      </a>
+      <a href="mailto:developersinthehouse@gmail.com" class="social-card">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </a>
+      <a href="https://x.com/Deve_lopers_?t=mwe4xTw3VEIA6mF2NjA0oQ&s=08 " target="_blank" class="social-card">
+       <i class="fi fi-brands-twitter-alt"></i></i>
+        <span>Twitter</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    BY: DEVELOPERS 💻 | Made with ❤️ for Class 11 Aspirants
+  </footer>
+
+<script src="https://utteranc.es/client.js"
+        repo="0xCodePhantom/comments"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+<script>
+  // ==========================
+  // Glitch typing effect (Loader + Content)
+  // ==========================
+  const textElement = document.getElementById('text');
+  const loader = document.getElementById('loader');
+  const content = document.getElementById('content');
+  const message = "";
+  let index = 0;
+
+  function typeLetter() {
+    if (!textElement || !loader) return; // ✅ safety check
+    if (index < message.length) {
+      const char = message[index];
+      if (char === " ") {
+        textElement.innerHTML += "&nbsp;";
+      } else {
+        const span = document.createElement("span");
+        span.className = "glitch";
+        span.setAttribute("data-text", char);
+        span.textContent = char;
+        textElement.appendChild(span);
+      }
+      index++;
+      setTimeout(typeLetter, 100);
+    } else {
+      loader.classList.add('fade-out');
+      setTimeout(() => {
+        if (content) content.classList.add('visible');
+      }, 1000);
+    }
+  }
+
+  window.addEventListener('load', () => {
+    if (textElement) typeLetter();
+  });
+
+  // ==========================
+  // Navbar sticky toggle on scroll
+  // ==========================
+  (function () {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    const SCROLL_THRESHOLD = 40;
+    let ticking = false;
+
+    function updateNavbar() {
+      if (window.scrollY > SCROLL_THRESHOLD) {
+        navbar.classList.add('sticky');
+      } else {
+        navbar.classList.remove('sticky');
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateNavbar();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateNavbar();
+  })();
+
+  // ==========================
+  // Theme toggle + Accordion + Toast + Hero Fade
+  // ==========================
+  document.addEventListener("DOMContentLoaded", function () {
+    const body = document.body;
+    const toggle = document.getElementById("theme-toggle");
+    let circle = null;
+    if (toggle) {
+      circle = toggle.querySelector(".neon-circle");
+    }
+
+    // Accordion toggle
+ const chapters = document.querySelectorAll(".chapter-card");
+
+  chapters.forEach(card => {
+    const header = card.querySelector(".chapter-header");
+    const content = card.querySelector(".chapter-content");
+    const icon = header.querySelector("span");
+
+    header.addEventListener("click", () => {
+      // close all other chapters
+      chapters.forEach(other => {
+        if (other !== card) {
+          other.querySelector(".chapter-content").style.maxHeight = null;
+          other.querySelector(".chapter-content").classList.remove("open");
+          other.querySelector(".chapter-header span").textContent = "+";
+        }
+      });
+
+      // toggle current one
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        content.classList.remove("open");
+        icon.textContent = "+";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.classList.add("open");
+        icon.textContent = "–";
+      }
+    });
+  });
+  
+    // Toast function
+    function showToast(message, duration = 3000) {
+      let toast = document.createElement("div");
+      toast.className = "toast";
+      toast.textContent = message;
+      document.body.appendChild(toast);
+
+      setTimeout(() => toast.classList.add("show"), 100);
+      setTimeout(() => {
+        toast.classList.remove("show");
+        setTimeout(() => toast.remove(), 500);
+      }, duration);
+    }
+
+    // ✅ Theme toggle logic (safe)
+    if (toggle && circle) {
+      if (localStorage.getItem("dark-mode") === "true") {
+        body.classList.add("dark");
+        circle.classList.replace("sun", "moon");
+      } else {
+        body.classList.remove("dark");
+        circle.classList.replace("moon", "sun");
+      }
+
+      toggle.addEventListener("click", () => {
+        body.classList.toggle("dark");
+        const isDark = body.classList.contains("dark");
+
+        localStorage.setItem("dark-mode", isDark);
+
+        if (isDark) circle.classList.replace("sun", "moon");
+        else circle.classList.replace("moon", "sun");
+
+        showToast("Effect will be shown on the next page.");
+      });
+    }
+
+    // Hero section fade-in effect
+    const heroSection = document.querySelector(".hero-section");
+    if (heroSection) {
+      setTimeout(() => {
+        heroSection.style.opacity = "1";
+      }, 1000);
+    }
+  });
+
+  // ==========================
+  // Responsive tweaks
+  // ==========================
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @media (max-width:600px){
+      #comment-section h2 { font-size:2rem; }
+      #comment-section input, #comment-section textarea { font-size:0.95rem; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  
+const toggle = document.getElementById('darkModeToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+
+   // Auto-switch theme with user’s OS theme
+  const theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'github-dark'
+    : 'github-light';
+
+  const s = document.createElement('script');
+  s.src = 'https://utteranc.es/client.js';
+  s.setAttribute('repo', 'oxCodePhantom'); // <-- change this
+  s.setAttribute('issue-term', 'pathname'); // one thread per unique URL path
+  s.setAttribute('label', 'comments');
+  s.setAttribute('theme', theme);
+  s.crossOrigin = 'anonymous';
+  s.async = true;
+  document.querySelector('#comments').appendChild(s);
+// breakdown
+ const accordions = document.querySelectorAll(".accordion");
+
+    accordions.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Close all panels
+        accordions.forEach((other) => {
+          if (other !== btn) {
+            other.classList.remove("active");
+            other.nextElementSibling.style.maxHeight = null;
+          }
+        });
+
+        // Toggle current one
+        btn.classList.toggle("active");
+        const panel = btn.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+  
+  const hamburger = document.getElementById('hamburger');
+const menu = document.querySelector('.navbar .menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  menu.classList.toggle('active');
+});
+
+// Close menu when any link or dropdown clicked (mobile)
+document.querySelectorAll('.navbar .menu a, .navbar .dropdown button').forEach(link => {
+  link.addEventListener('click', () => {
+    if(window.innerWidth <= 900){
+      hamburger.classList.remove('active');
+      menu.classList.remove('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
