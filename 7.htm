@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter Notes – Class 11 Mathematics</title>
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  @import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css');
+    /* ===== IMPORT FONTS ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  /* BASE STYLES */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
+  body { background: linear-gradient(120deg,#f0f4ff,#f9f9f9); color:#222; min-height:100vh; display:flex; flex-direction:column; }
+
+  a { text-decoration:none; color:inherit; }
+
+   /* ===== NAVBAR ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 40px;
+      flex-wrap: nowrap;
+      backdrop-filter: blur(8px);
+      position: relative;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Nata Sans';
+      letter-spacing: 1px;
+      color: #000;
+    }
+    .navbar .logo span{
+      font-family: 'Nata Sans';
+    }
+
+    body.dark .navbar .logo { color: #f5fbff; }
+    .navbar .menu {
+      display: flex;
+      position: relative;
+      gap: 28px;
+      align-items: center;
+      right: 75px;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: rgb(0, 35, 61);
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    .navbar a:hover { color: #38bdf8; }
+    body.dark .navbar a { color: #fff; }
+
+    /* ===== DROPDOWN MENU ===== */
+    /* Dropdown */
+.dropdown { position:relative; display:inline-block; }
+.dropdown button {
+  background:none; border:none; cursor:pointer;
+  font-weight:600; font-size:14px;
+  color: rgb(0,35,61); padding:10px 0;
+  transition: color 0.3s ease;
+}
+.dropdown button:hover { color:#38bdf8; }
+
+.dropdown-content {
+    position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 240px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.dropdown-content a {
+  display:flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 12px;
+  color: #00233f;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+.dropdown-content a:hover { background: #ace0fc50 ;
+  transform: translateX(8px); color: black;}
+.dropdown:hover .dropdown-content { opacity:1; pointer-events:auto; max-height:500px; }
+
+
+.dropdown-content a i {
+  font-size: 12px;
+  color: #0ea5e9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.dropdown-content a:hover i {
+  transform: rotate(15deg) scale(1.2);
+  color: #ff00bf;
+}
+
+    body.dark .dropdown-content { background:#1c1c1c; box-shadow:0 4px 8px rgba(255,255,255,0.2); }
+    body.dark .dropdown-content a { color:#f0f0f0; }
+    body.dark .dropdown-content a:hover { background:#0072ff1f; color:#fff; }
+
+    /* ===== DARK MODE TOGGLE ===== */
+    .neon-toggle {
+      position:absolute; right:28px; top:18px; width:64px; height:34px;
+      border-radius:50px;
+      background: linear-gradient(135deg,#00d4ff,#0072ff);
+      box-shadow:0 0 10px rgba(0,162,255,0.6), inset 0 0 8px rgba(255,255,255,0.3);
+      cursor:pointer; transition:0.4s; overflow:hidden;
+    }
+    body.dark .neon-toggle {
+     background: linear-gradient(135deg,#22d3ee,#8b5cf6);
+      box-shadow:0 0 12px rgba(138,43,226,0.7), inset 0 0 6px rgba(255,255,255,0.2);
+    }
+    .neon-circle { position:absolute; top:3px; left:3px; width:28px; height:28px; border-radius:50%;   background:#fff; color:#fbbf24; display:flex; align-items:center; justify-content:center; font-size:17px; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:0.4s; }
+    .sun::before { content:"☀️"; } .moon::before { content:"🌙"; }
+    body.dark .neon-circle { transform:translateX(30px); background:#111; color:#facc15; }
+
+  /* HEADER */
+  .chapter-header { text-align:center; padding:60px 20px; animation: fadeIn 1s ease forwards; }
+  .chapter-header h1 { font-size:3rem; background:linear-gradient(90deg,#2563eb,#06b6d4,#10b981); -webkit-background-clip:text; color:transparent; margin-bottom:15px; }
+  .chapter-header p { font-size:1.2rem; color:#555; }
+
+/* ===== DARK MODE COMPLETE ===== */
+
+/* Body background */
+body.dark {
+  background: linear-gradient(120deg, #0f172a, #1e293b);
+  color: #f5f5f5;
+}
+
+/* Navbar */
+body.dark .navbar {
+  background: rgba(20, 30, 48, 0.8);
+}
+body.dark .navbar a {
+  color: #e2e8f0;
+}
+body.dark .navbar a:hover {
+  color: #38bdf8;
+}
+
+/* Sidebar */
+body.dark .chapter-nav {
+  background: #1e293b;
+  color: #f1f5f9;
+  box-shadow: 4px 0 20px rgba(255, 255, 255, 0.05);
+}
+body.dark .chapter-nav .chs {
+  color: #cbd5e1;
+}
+body.dark .chapter-nav .chs:hover {
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  color: #fff;
+}
+
+/* Toggle Button */
+body.dark .toggle-btn {
+  color: #e2e8f0;
+}
+
+/* PDF Container */
+body.dark .pdf-container {
+  background: #0f172a;
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.05);
+}
+
+/* PDF Toolbar */
+body.dark .pdf-toolbar {
+  background: #111827;
+  color: #f1f5f9;
+}
+body.dark .toolbar-buttons button {
+  background: #1f2937;
+  color: #f1f5f9;
+}
+body.dark .toolbar-buttons button:hover {
+  background: #3b82f6;
+}
+
+/* PDF Viewer */
+body.dark .pdf-viewer {
+  background: #0f172a;
+}
+
+/* Share Toolbar */
+body.dark .share-toolbar {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+body.dark .share-label {
+  color: #38bdf8;
+}
+body.dark .share-toolbar a {
+  background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+  color: #fff;
+}
+
+/* Extra Section */
+body.dark .extra h2 {
+  background: linear-gradient(90deg, #38bdf8, #818cf8, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body.dark .extra-link {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 1px solid #334155;
+  color: #f1f5f9;
+}
+body.dark .extra-link:hover {
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: #fff;
+}
+body.dark .dropdown button{
+  color: white;
+}
+
+body.dark .dropdown button:hover{
+  color: #38bdf8;
+}
+
+body.dark section p{
+  color: white;
+}
+  /* LEFT CHAPTER NAV */
+
+.chapter-nav {
+  position: fixed;
+  left: -260px;
+  top: 120px;  /* navbar se gap (navbar height ke hisaab se adjust karna) */
+  bottom: 20px; /* bottom se chhoda hua */
+  width: 200px;
+  max-height: fit-content;
+  background: #f9fbff;
+  color: rgb(0, 32, 53);
+  padding: 20px 10px;
+transition: left 0.3s ease;
+  z-index: 1000;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.2);
+  border-radius: 0 20px 20px 0; /* thoda curve look */
+  overflow-y: auto; /* agar chapters jyada ho gaye toh scroll aa jayega */
+}
+
+    .chapter-nav.active {
+      left: 0; /* slide in */
+    }
+
+    /* Mobile closed state */
+@media (max-width: 768px) {
+  .chapter-nav {
+    width: 0;
+    padding: 0;
+  }
+  .chapter-nav.open {
+    width: 220px;
+    padding: 20px;
+  }
+}
+.chapter-nav h3 {
+  font-size: 8px;
+  margin-bottom: 10px;
+  font-family: 'Nata Sans';
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 119, 255, 0.2);
+  padding-bottom: 8px;
+}
+
+.chapter-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chapter-nav li {
+  margin: 10px 0;
+}
+
+.chapter-nav .chs {
+   display: block;
+  padding: 2px 8px;
+  font-weight: 500px;
+  margin: 5px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  font-size: 15px;
+  color: #002041;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+/* Hover / Active Effect */
+.chapter-nav .chs:hover {
+  background: linear-gradient(135deg, #2cbcf0, #669ef8);
+  color: #ffffff;
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+
+    /* Toggle Button */
+.toggle-btn {
+  position: relative;
+  top: 80px;  /* Navbar ke neeche aa jaye */
+  left: -600px;
+  border: none;
+  background: none;
+  color: rgb(0, 29, 53);
+  font-size: 16px;
+  font-family: 'Orbitron';
+  font-weight: 500;
+  padding: 10px 18px;
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  animation: nudge 2s infinite ease-in-out;
+}
+
+
+
+
+/* Keyframes for continuous animation */
+@keyframes nudge {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(8px); } /* thoda aage */
+  100% { transform: translateX(0); } /* wapas */
+}
+.toggle-btn:hover {
+  transform: translateX(3px);
+}
+
+
+.chapter-nav .closebtn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 22px;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.chapter-nav .closebtn:hover {
+  transform: scale(1.1);
+
+}
+
+/* PDF Viewer Wrapper */
+ .pdf-container {
+      width: 90%;
+      max-width: 950px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Toolbar Design */
+    .pdf-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1f2937; /* Dark modern look */
+      padding: 12px 20px;
+      color: white;
+    }
+
+    .pdf-toolbar h3 {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    .toolbar-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .toolbar-buttons button {
+      background: #374151;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .toolbar-buttons button:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
+    /* PDF Viewer */
+    .pdf-viewer {
+      flex: 1;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .pdf-viewer iframe {
+      width: 100%;
+      height: 140vh;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+/* RIGHT SHARE TOOLBAR */
+.share-toolbar {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px 0 0 20px;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  box-shadow: -4px 6px 20px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.share-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-weight: 600;
+  font-size: 14px;
+  color: #0ea5e9;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.share-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.share-toolbar a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  background: linear-gradient(135deg,#38bdf8,#0ea5e9);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(14,165,233,0.4);
+  transition: all 0.3s ease;
+}
+
+.share-toolbar a:hover {
+  transform: scale(1.2) rotate(12deg);
+  background: linear-gradient(135deg,#0ea5e9,#06b6d4);
+  box-shadow: 0 8px 18px rgba(6,182,212,0.5);
+}
+/* EXTRA SECTION - ROW STYLE */
+.extra {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.extra h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  background: linear-gradient(90deg,#2563eb,#06b6d4,#10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.extra-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.extra-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ffffff, #f0faff);
+  border: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #00194e;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(37,99,235,0.1);
+  transition: all 0.3s ease;
+}
+
+.extra-link i {
+  font-size: 18px;
+  color: #06b6d4;
+  transition: 0.3s;
+}
+
+.extra-link:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg,#38bdf8,#06b6d4);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(37,99,235,0.2);
+}
+
+.extra-link:hover i {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+
+  /* ANIMATIONS */
+  @keyframes fadeIn { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
+  @keyframes slideInLeft { 0%{opacity:0; transform:translateX(-50px);} 100%{opacity:1; transform:translateX(0);} }
+  @keyframes slideInRight { 0%{opacity:0; transform:translateX(50px);} 100%{opacity:1; transform:translateX(0);} }
+
+  /* RESPONSIVE */
+  @media(max-width:1400px){ .main-content{flex-wrap:wrap;} .share-toolbar{position:static; flex-direction:row; justify-content:center; transform:translateY(0); margin-top:20px;} }
+  @media(max-width:900px){ .sidebar{width:100%; position:relative; top:0;} .pdf-section iframe{height:60vh;} }
+
+  /* ===== RESPONSIVE DESIGN ===== */
+
+/* ===== MEDIA QUERIES ===== */
+    @media screen and (max-width:900px) {
+      .navbar { padding:14px 20px; }
+      .navbar .menu { display:none; gap:0; flex-direction:column; position:absolute; top:60px; right:20px; background:rgba(255,255,255,0.95); backdrop-filter:blur(8px); border-radius:10px; padding:15px 20px; z-index:1000; }
+      body.dark .navbar .menu { background: rgba(0,0,0,0.7); }
+    }
+    @media screen and (max-width:600px) {
+      .questions-index h1 { font-size:2rem; }
+      .questions-index p { font-size:1rem; }
+      .chapters-list { grid-template-columns:1fr; gap:16px; margin:0 10px; }
+      .navbar { flex-direction:column; align-items:flex-start; padding:10px 20px; }
+  .navbar .menu { flex-direction:column; gap:12px; right:0; width:100%; }
+  .dropdown-content { min-width:200px; }
+    }
+
+
+
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+  .chapter-nav {
+    width: 220px; /* thoda compact */
+  }
+  .share-toolbar {
+    right: 10px;
+    width: 60px;
+  }
+  .pdf-container {
+    margin: 80px auto 20px auto;
+    width: 95%;
+  }
+}
+
+/* Mobile Landscape & Portrait */
+@media (max-width: 768px) {
+  /* Sidebar auto hidden */
+  .chapter-nav {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .chapter-nav {
+    width: 200px;
+    bottom: 10px;
+    padding: 20px 10px;
+    position: fixed;
+  }
+  .toggle-btn {
+    top: 70px;
+    left: 0;
+  }
+
+  /* Share toolbar reposition */
+  .share-toolbar {
+    top: auto;
+    bottom: 20px;
+    right: 15px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    width: auto;
+    border-radius: 12px;
+  }
+  .share-toolbar a {
+    margin: 0 6px;
+   
+  }
+  .share-label {
+    display: none; /* "Sharing is caring" text hide */
+  }
+
+  /* PDF container full width */
+  .pdf-container {
+    width: 100%;
+    height: 80vh;
+    margin: 60px 0 20px 0;
+  }
+
+  /* Extra links wrap nicely */
+  .extra {
+    padding: 20px;
+  }
+  .extra-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  .extra-link {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}
+
+/* Very Small Phones */
+@media (max-width: 480px) {
+  .chapter-nav.open {
+    width: 170px;
+  }
+  .pdf-container {
+    height: 70vh;
+  }
+  .extra-link {
+    flex: 1 1 100%;
+  }
+}
+.arrow{
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.dropdown:hover .arrow{
+  transform: rotate(180deg);
+}
+.share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #fff;
+  transition: all 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.share-btn:hover {
+  transform: translateY(-5px) scale(1.1) rotate(-5deg);
+}
+
+.share-icon {
+  font-size: 45px;  
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+.share-icon:hover {
+  transform: scale(1.25) rotate(-5deg);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+/* Platform colors (direct icon color) */
+.share-icon.telegram {
+  color: #0088cc;
+}
+.share-icon.whatsapp {
+  color: #25d366;
+}
+.share-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #fff;
+  transition: all 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.share-btn:hover {
+  transform: translateY(-5px) scale(1.1) rotate(-5deg);
+}
+
+.share-icon {
+  font-size: 45px;  
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+.share-icon:hover {
+  transform: scale(1.25) rotate(-5deg);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+/* Platform colors (direct icon color) */
+.share-icon.telegram {
+  color: #0088cc;
+}
+.share-icon.whatsapp {
+  color: #25d366;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+ <nav class="navbar">
+    <div class="logo"><i class="fi fi-ss-book-open-cover" style="position: relative; left: -2px; top: 3px;"></i> <span>Class 11 Mathematics</span></div>
+
+    <div class="menu">
+      <a href="index.htm">Home</a>
+      <div class="dropdown">
+        <button>Extras <span class="arrow">▾</span></button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm">About</a>
+    </div>
+
+
+    <div class="neon-toggle" id="theme-toggle">
+      <div class="neon-circle sun"></div>
+    </div>
+  </nav>
+
+
+
+
+  <!-- Toggle Button -->
+  <button class="toggle-btn" onclick="toggleNav()" id="toggleBtn">📑 Chapters Navigation &gt</button>
+  
+
+<!-- LEFT CHAPTER NAVIGATION -->
+<div class="chapter-nav" id="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">❌</a>
+  <br>
+  <ul>
+    <li><a href="1.htm" class="chs">Chapter 1</a></li>
+    <li><a href="2.htm" class="chs">Chapter 2</a></li>
+    <li><a href="3.htm" class="chs">Chapter 3</a></li>
+    <li><a href="4.htm" class="chs">Chapter 4</a></li>
+    <li><a href="5.htm" class="chs">Chapter 5</a></li>
+    <li><a href="6.htm" class="chs">Chapter 6</a></li>
+    <li><a href="7.htm" class="chs">Chapter 7</a></li>
+    <li><a href="8.htm" class="chs">Chapter 8</a></li>
+    <li><a href="9.htm" class="chs">Chapter 9</a></li>
+     <li><a href="10.htm" class="chs">Chapter 10</a></li>
+    <li><a href="11.htm" class="chs">Chapter 11</a></li>
+    <li><a href="12.htm" class="chs">Chapter 12</a></li>
+    <li><a href="13.htm" class="chs">Chapter 13</a></li>
+    <li><a href="14.htm" class="chs">Chapter 14</a></li>
+  </ul>
+</div>
+
+
+
+<!-- CHAPTER HEADER -->
+<section class="chapter-header">
+  <h1>Chapter7 – binomial Theorem</h1>
+  <p>Expanding powers quickly using coefficients and patterns.</p>
+</section>
+
+  <div class="pdf-container">
+    <!-- Toolbar -->
+    <div class="pdf-toolbar">
+      <h3>📘 Chapter Notes</h3>
+      <div class="toolbar-buttons">
+        <button onclick="zoomIn()">🔍 +</button>
+        <button onclick="zoomOut()">🔍 -</button>
+        <button onclick="printPDF()">🖨 Print</button>
+        <button onclick="downloadPDF()">⬇ Download</button>
+      </div>
+    </div>
+
+    <!-- PDF Viewer -->
+    <div class="pdf-viewer">
+      <iframe id="pdfFrame" src="binomial notes.pdf#toolbar=0"></iframe>
+    </div>
+  </div>
+
+<!-- IMPROVED SHARE SECTION WITH SPARKLE -->
+<div style="text-align:center; margin:40px 0;">
+  <!-- HEADER -->
+  <h3 style="
+      font-size:1.6rem;
+      font-weight:700;
+      margin-bottom:20px;
+      background: linear-gradient(90deg,#2563eb,#06b6d4,#10b981);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display:inline-block;
+      animation: floatText 2s ease-in-out infinite alternate;
+  ">
+    📤 Share this Chapter with your Friends!
+  </h3>
+
+  <!-- SHARE BUTTONS -->
+  <div style="
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      margin-top:20px;
+      flex-wrap:wrap;
+  ">
+    <!-- WhatsApp -->
+    <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20Class%2011%20Maths%20Chapter%20Notes:%20https://yourwebsite.com/chapter2" 
+       target="_blank" 
+       title="Share on WhatsApp"
+       style="
+          display:flex; align-items:center; justify-content:center;
+          width:55px; height:55px; border-radius:50%; 
+          background:#25D366; color:white; font-size:24px; 
+          text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,0.2);
+          transition: all 0.3s ease;
+          position:relative;
+       "
+       onmouseover="this.style.transform='scale(1.2) rotate(10deg)'; this.style.boxShadow='0 0 15px #25D366, 0 0 25px #25D366';" 
+       onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';">
+       <i class="fi fi-brands-whatsapp"></i>
+    </a>
+
+    <!-- Telegram -->
+    <a href="https://t.me/share/url?url=https://yourwebsite.com/chapter2&text=Check%20out%20this%20Class%2011%20Maths%20Chapter%20Notes!" 
+       target="_blank" 
+       title="Share on Telegram"
+       style="
+          display:flex; align-items:center; justify-content:center;
+          width:55px; height:55px; border-radius:50%; 
+          background:#0088cc; color:white; font-size:24px; 
+          text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,0.2);
+          transition: all 0.3s ease;
+          position:relative;
+       "
+       onmouseover="this.style.transform='scale(1.2) rotate(10deg)'; this.style.boxShadow='0 0 15px #00aaff, 0 0 25px #00aaff';" 
+       onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';">
+       <i class="fi fi-brands-telegram"></i>
+    </a>
+
+    <!-- Copy Link -->
+    <button onclick="navigator.clipboard.writeText('https://yourwebsite.com/chapter2').then(()=>alert('Link copied!'))" 
+        title="Copy Link"
+        style="
+          display:flex; align-items:center; justify-content:center;
+          width:55px; height:55px; border-radius:50%; 
+          background:#6B7280; color:white; font-size:24px; 
+          border:none; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.2);
+          transition: all 0.3s ease;
+          position:relative;
+        "
+        onmouseover="this.style.transform='scale(1.2) rotate(10deg)'; this.style.boxShadow='0 0 15px #9ca3af, 0 0 25px #9ca3af';" 
+        onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';">
+        <i class="fi fi-rr-link"></i>
+    </button>
+  </div>
+</div>
+
+<!-- INLINE ANIMATION SCRIPT -->
+<style>
+@keyframes floatText {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+</style>
+
+<!-- EXTRA SECTION -->
+<div class="extra">
+  <h2>You Might Also Like</h2>
+  <div class="extra-row">
+    <a href="ncertsol_7.htm" class="extra-link">
+      <i class="fi fi-ss-file"></i>
+      <span>NCERT Solutions Ch 7</span>
+    </a>
+    <a href="ncert_solutions.htm" class="extra-link">
+      <i class="fi fi-ss-layers"></i>
+      <span>All NCERT Solutions</span>
+    </a>
+    <a href="imp7.htm" class="extra-link">
+      <i class="fi fi-ss-document"></i>
+      <span>Ch7 Important Qs</span>
+    </a>
+    <a href="Binomial.pdf" class="extra-link">
+      <i class="fi fi-ss-book"></i>
+      <span>43 Years PYQs for Ch7</span>
+    </a>
+  </div>
+</div>
+
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const body = document.body;
+  const toggle = document.getElementById("theme-toggle");
+  const circle = toggle.querySelector(".neon-circle"); 
+
+  // Theme load from localStorage
+  if(localStorage.getItem("dark-mode") === "true") {
+    body.classList.add("dark");
+    circle.classList.replace("sun","moon");
+  } else {
+    body.classList.remove("dark");
+    circle.classList.replace("moon","sun");
+  }
+
+  // Theme toggle
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    const isDark = body.classList.contains("dark");
+    localStorage.setItem("dark-mode", isDark);
+    if(isDark) circle.classList.replace("sun","moon");
+    else circle.classList.replace("moon","sun");
+  });
+
+
+});
+
+// ch nav
+ // Sidebar toggle logic
+
+  function toggleNav() {
+  const sidebar = document.getElementById("sidebar");
+  const toggleBtn = document.getElementById("toggleBtn");
+
+  if (sidebar.classList.contains("active")) {
+    sidebar.classList.remove("active");   // close sidebar
+    toggleBtn.style.display = "block";    // show button again
+  } else {
+    sidebar.classList.add("active");      // open sidebar
+    toggleBtn.style.display = "none";     // hide button
+  }
+}
+
+
+    let pdfFrame = document.getElementById("pdfFrame");
+    let scale = 1;
+
+    function zoomIn() {
+      scale += 0.1;
+      pdfFrame.style.transform = `scale(${scale})`;
+      pdfFrame.style.transformOrigin = "0 0";
+    }
+
+    function zoomOut() {
+      if (scale > 0.5) {
+        scale -= 0.1;
+        pdfFrame.style.transform = `scale(${scale})`;
+        pdfFrame.style.transformOrigin = "0 0";
+      }
+    }
+
+    function printPDF() {
+      pdfFrame.contentWindow.print();
+    }
+
+    function downloadPDF() {
+      const link = document.createElement("a");
+      link.href = "set.pdf"; // Change to your pdf link
+      link.download = "set.pdf";
+      link.click();
+    }
+        function copyLink() {
+  const link = "https://yourwebsite.com/chapter2";
+  navigator.clipboard.writeText(link).then(() => {
+    alert("Link copied to clipboard!");
+  });
+}
+</script>
+</body>
+</html>
