@@ -1,173 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maths – Chapter 1 Important Questions</title>
-   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight. css'>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Class 11 Maths — Chapter 11: Three Dimensional Geometry</title>
   <style>
-      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@400;600&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@500;700&display=swap');
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(-45deg, #f3f8ff, #e6f7ff, #fffafc, #f5fff3);
-      background-size: 400% 400%;
-      font-weight:500 ;
-      animation: gradientMove 10s ease infinite;
-      color: #333;
-    }
-
-    @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    .chapter-section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .chapter-section h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      text-align: center;
-      background: linear-gradient(90deg, #0072ff, #00c6ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-     .chapter-section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-align: center;
-      background: linear-gradient(90deg, #0072ff, #00c6ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .chapter-nav {
-      margin-top: 40px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .nav-btn {
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      background: linear-gradient(135deg, #ff416c, #ff4b2b);
-      transition: opacity 0.3s;
-    }
-
-    .nav-btn:hover {
-      opacity: 0.85;
-    }
+    :root{--accent:#0ea5a4;--card-bg:#fff;--bg:#f0fcfb}
+    body{font-family:Inter,Segoe UI,Arial,sans-serif;margin:0;background:var(--bg);color:#0b3340}
+    header{background:linear-gradient(90deg,#0891b2,#06b6d4);color:#fff;padding:18px;text-align:center}
+    header h1{margin:0;font-size:1.4rem}
+    main{max-width:980px;margin:18px auto;padding:0 18px;display:grid;gap:18px}
+    .card{background:var(--card-bg);padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    .head{color:var(--accent);font-weight:800;margin-bottom:8px}
+    .q{font-weight:700;margin-top:10px}
+    .ans{background:#f2fdfa;padding:12px;border-left:4px solid var(--accent);border-radius:8px;margin-top:8px;line-height:1.6}
+    .svg-wrap{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .diagram{flex:1;min-width:220px}
+    .caption{font-size:0.9rem;color:#444;margin-top:8px}
+    footer{text-align:center;padding:14px;margin-top:10px;background:#06b6d4;color:#fff;border-radius:8px}
+    @media (max-width:700px){.svg-wrap{flex-direction:column}}
   </style>
 </head>
 <body>
-  <section class="chapter-section">
-    <h1>Mathematics – Chapter 1 (Sets)</h1>
-    <h2>  Important Questions </h2>
+  <header>
+    <h1>Chapter 11: Three Dimensional Geometry</h1>
+    <div style="font-size:0.95rem;margin-top:6px">Key questions, clear step-by-step solutions and diagrams (Class 11 CBSE).</div>
+  </header>
 
-<pre>
-Question 1: 
-Find the equation of the set of points which are equidistant from the points (1, 2, 3) and (3, 2, –1).
-Solution:
-Assume that P (x, y, z) be the point that is equidistant from two points A(1, 2, 3) and B(3, 2, –1).
-Thus, we can say that, PA = PB
-Take square on both the sides, we get
-PA2 = PB2
-It means that,
-(x-1)2 + (y-2)2+(z-3)2 = (x-3)2+(y-2)2+(z+1)2
-⇒ x2 – 2x + 1 + y2 – 4y + 4 + z2 – 6z + 9 = x2 – 6x + 9 + y2 – 4y + 4 + z2 + 2z + 1
-Now, simplify the above equation, we get:
-⇒ –2x –4y – 6z + 14 = –6x – 4y + 2z + 14
-⇒ – 2x – 6z + 6x – 2z = 0
-⇒ 4x – 8z = 0
-⇒ x – 2z = 0
-Hence, the required equation for the set of points is x – 2z = 0.
-Question 2: 
-Given that P (3, 2, –4), Q (5, 4, –6) and R (9, 8, –10) are collinear. Find the ratio in which Q
-divides PR.
-Solution: 
-Assume that the point Q (5, 4, –6) divides the line segment joining points P (3, 2, –4) and R (9, 8, –10) in the ratio k:1.
-Therefore, by using the section formula, we can write it as:
-(5, 4, -6) = [ (k(9)+3)/(k+1), (k(8)+2)/(k+1), (k(-10)-4)/(k+1)] 
-⇒(9k+3)/(k+1) = 5
-Now, bring the L.H.S denominator to the R.H.S and multiply it
-⇒9k+3 = 5k+5
-Now, simplify the equation to find the value of k.
-⇒4k= 2
-⇒k = 2/4
-⇒k=½
-Therefore, the value of k is ½.
-Hence, the point Q divides PR in the ratio of 1:2
-Question 3:
-Prove that the points: (0, 7, 10), (–1, 6, 6) and (–4, 9, 6) are the vertices of a right-angled triangle
-Solution:
-Let the given points be A = (0, 7, 10), B = (–1, 6, 6), and C = (–4, 9, 6)
-Now, find the distance between the points
-Finding for AB:
-AB = √ [(-1-0)2 + (6-7)2 +(6-10)2] 
-AB = √ [(-1)2 + (-1)2 +(-4)2] 
-AB = √(1+1+16)
-AB = √18
-AB = 3√2 …. (1)
-Finding for BC:
-BC= √ [(-4+1)2 + (9-6)2 +(6-6)2] 
-BC = √ [(-3)2 + (3)2 +(-0)2] 
-BC = √(9+9)
-BC = √18
-BC = 3√2 …..(2)
-Finding for CA:
-CA= √ [(0+4)2 + (7-9)2 +(10-6)2] 
-CA = √ [(4)2 + (-2)2 +(4)2] 
-CA = √(16+4+16)
-CA = √36
-CA = 6 …..(3)
-Now, by Pythagoras theorem,
-AC2 = AB2 + BC2 …..(4)
-Now, substitute (1),(2), and (3) in (4), we get:
-62 = ( 3√2)2 + ( 3√2)2
-36 = 18+18
-36 = 36
-The given points obey the condition of Pythagoras Theorem.
-Hence, the given points are the vertices of a right-angled triangle.
-Question 4: 
-Calculate the perpendicular distance of the point P(6, 7, 8) from the XY – Plane.
-(a)8  (b)7   (c)6  (d) None of the above
-Solution:
-A correct answer is option (A)
-Explanation:
-Assume that A be the foot of perpendicular drawn from the point P (6, 7, 8) to the XY plane and the distance of this foot A from P is the z-coordinate of P, i.e., 8 units
-Hence, the correct answer is option (a)
-Question 5:
-If a parallelopiped is formed by planes drawn through the points (2, 3, 5) and (5, 9, 7) parallel to the coordinate planes, then find the length of edges of a parallelopiped and the length of the diagonal
-Solution:
-Let A = (2, 3, 5), B = (5, 9, 7)
-To find the length of the edges of a parallelopiped = 5 – 2, 9 – 3, 7 – 5
-It means that 3, 6, 2.
-Now, to find the length of a diagonal = √(32 + 62 + 22)
-= √(9+36+4)
-= √49
-= 7
-Therefore, the length of a diagonal of a parallelopiped is 7 units.
+  <main>
+    <section class="card">
+      <div class="head">Overview</div>
+      <div class="ans">Three dimensional geometry works with points (x,y,z) in space. Key objects: lines, planes, distances, direction ratios/ratios, and angles between lines/planes. Coordinate axes are x, y, z — visualize using projections.</div>
+    </section>
 
-</pre>
+    <section class="card">
+      <div class="q">Q1. Find the distance between points A(1,2,3) and B(4,6,3).</div>
+      <div class="ans">
+        <strong>Solution:</strong> Distance formula in 3D: |AB| = √[(x₂−x₁)²+(y₂−y₁)²+(z₂−z₁)²].<br>
+        Here: Δx=3, Δy=4, Δz=0 ⇒ |AB| = √(9+16+0) = √25 = <strong>5</strong>.
+      </div>
+    </section>
 
+    <section class="card">
+      <div class="q">Q2. Write symmetric and parametric equations of line passing through P(1,0,2) with direction ratios 2,−1,3.</div>
+      <div class="ans">
+        <strong>Parametric:</strong> x=1+2t, y=0−t, z=2+3t, t∈R.<br>
+        <strong>Symmetric form:</strong> (x−1)/2 = (y−0)/(−1) = (z−2)/3.
+      </div>
+    </section>
 
-    <div class="chapter-nav">
-      <a href="importants.htm" class="nav-btn">⬅ Back to Chapters</a>
-      <a href="imp12.htm" class="nav-btn">Next Chapter ➡</a>
-    </div>
-  </section>
+    <section class="card">
+      <div class="q">Q3. Find equation of plane through points A(1,0,0), B(0,1,0), C(0,0,1).</div>
+      <div class="ans">
+        Two direction vectors: AB = B−A = (−1,1,0), AC = C−A = (−1,0,1). Normal vector n = AB × AC.<br>
+        AB×AC = |i  j  k; −1 1 0; −1 0 1| = (1·1 − 0·0)i − (−1·1 − 0·(−1))j + (−1·0 − 1·(−1))k = (1)i − (−1)j + (1)k = (1,1,1).
+        So plane eqn: 1(x−1)+1(y−0)+1(z−0)=0 ⇒ x−1 + y + z =0 ⇒ <strong>x + y + z = 1</strong>.
+      </div>
+    </section>
 
+    <section class="card">
+      <div class="q">Q4. Find angle between lines L₁: r = (1,2,3) + λ(2,−1,1) and L₂: r = (0,1,−1) + μ(1,2,−1).</div>
+      <div class="ans">
+        Angle between lines = angle between their direction vectors a=(2,−1,1) and b=(1,2,−1).<br>
+        Use cosθ = (a·b)/(|a||b|). a·b = 2·1 + (−1)·2 + 1·(−1) = 2 −2 −1 = −1.<br>
+        |a| = √(4+1+1)=√6, |b|=√(1+4+1)=√6 ⇒ cosθ = (−1)/6 ⇒ θ = cos⁻¹(−1/6) ≈ 99.59°.
+      </div>
+    </section>
 
+    <section class="card">
+      <div class="q">Q5. Shortest distance between skew lines L₁: r = (1,0,2) + λ(1,1,0) and L₂: r = (0,1,−1) + μ(2,−1,1).</div>
+      <div class="ans">
+        Direction vectors a=(1,1,0), b=(2,−1,1). Connect point P₁=(1,0,2) to P₂=(0,1,−1): c = P₂−P₁=(−1,1,−3).<br>
+        Shortest distance = |c·(a×b)| / |a×b|. Compute a×b = |i j k; 1 1 0; 2 −1 1| = (1·1 − 0·(−1))i − (1·1 − 0·2)j + (1·(−1) − 1·2)k = (1)i − (1)j + (−3)k = (1,−1,−3).<br>
+        c·(a×b) = (−1)·1 + 1·(−1) + (−3)·(−3) = −1 −1 +9 = 7. |a×b| = √(1+1+9)=√11. Distance = |7|/√11 ≈ 2.11.
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="q">Q6. Find equation of plane with normal vector n=(2,−3,1) passing through point (1,2,−1).</div>
+      <div class="ans">
+        Plane equation: n·(r−r₀)=0 ⇒ 2(x−1) −3(y−2) +1(z+1)=0 ⇒ 2x−2 −3y+6 + z +1=0 ⇒ 2x −3y + z +5 =0.
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="q">Q7. Distance of point (2,1,3) from plane 3x − 6y + 2z − 4 = 0.</div>
+      <div class="ans">
+        Formula: d = |ax₀+by₀+cz₀+d| / √(a²+b²+c²).<br>
+        Numerator = |3·2 −6·1 +2·3 −4| = |6 −6 +6 −4| = |2| = 2. Denominator = √(9+36+4)=√49=7 → d=2/7.
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="q">Q8. Find intersection point of line r=(2,−1,3)+t(1,2,−1) with plane x + y + z = 4.</div>
+      <div class="ans">
+        Parametric line: x=2+t, y=−1+2t, z=3−t. Substitute: (2+t) + (−1+2t) + (3−t) = 4 ⇒ 2+t −1+2t +3 − t =4 ⇒ (2+ −1+3) + (t+2t−t) =4 ⇒ 4 +2t =4 ⇒ 2t=0 ⇒ t=0. Point: (2,−1,3).
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="q">Q9. Equation of plane through three points P(1,0,0), Q(0,2,0), R(0,0,3).</div>
+      <div class="ans">
+        Vectors PQ=(−1,2,0), PR=(−1,0,3). Normal n = PQ×PR = |i j k; −1 2 0; −1 0 3| = (2·3−0·0)i − (−1·3 −0·(−1))j + (−1·0 −2·(−1))k = (6)i − (−3)j + (2)k = (6,3,2).
+        Take point P(1,0,0): 6(x−1)+3(y−0)+2(z−0)=0 ⇒ 6x−6 +3y +2z =0 ⇒ 6x +3y +2z =6 ⇒ divide by 1: <strong>6x + 3y + 2z = 6</strong>.
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="q">Q10. Show projection of vector a=(3,4,0) on b=(1,2,2).</div>
+      <div class="ans">
+        Projection scalar = (a·b)/|b|. a·b = 3·1 +4·2 +0·2 = 3 +8 =11. |b| = √(1+4+4)=√9=3.
+        Scalar projection = 11/3. Vector projection = [(a·b)/|b|²] b = (11/9)·(1,2,2) = (11/9,22/9,22/9).
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2025 CBSE Class 11 Maths — Chapter 11 (Three Dimensional Geometry)</footer>
 </body>
 </html>
