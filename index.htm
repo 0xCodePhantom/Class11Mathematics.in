@@ -51,6 +51,7 @@
     html, body {
       height: 100%;
       scroll-behavior: smooth;
+      overflow-x:hidden;
     }
 
     /* =========================
@@ -1502,7 +1503,7 @@ document.addEventListener('keydown', function(e) {
         }
         
         // Re-enable all interactive elements
-        const interactiveElements = mainContent.querySelectorAll('a, button, input, textarea, select');
+        const interactiveElements = mainContent.querySelectorAll('*');
         interactiveElements.forEach(el => {
             el.disabled = false;
             el.style.pointerEvents = 'auto';
@@ -1530,7 +1531,7 @@ document.addEventListener('keydown', function(e) {
         }
         
         // Re-enable all interactive elements
-        const interactiveElements = mainContent.querySelectorAll('a, button, input, textarea, select');
+        const interactiveElements = mainContent.querySelectorAll('*');
         interactiveElements.forEach(el => {
             el.disabled = false;
             el.style.pointerEvents = 'auto';
@@ -1545,3 +1546,4 @@ document.addEventListener('keydown', function(e) {
 </body>
 
 </html>
+
