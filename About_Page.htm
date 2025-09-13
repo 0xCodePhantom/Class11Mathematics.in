@@ -3,157 +3,357 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Class 11 Maths Notes - Team</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <title>Class 11 Maths Notes - Our Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'><link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <link rel="stylesheet" href="custom-scrollbar.css">
   <style>
-    :root {
-  --primary: #00d4ff;
-  --primary-dark: #0077b6;
-  --glass-bg: rgba(255, 255, 255, 0.18);
-  --blur: blur(18px);
-  --text-dark: #022b3a;
-}
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-  body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #6dd5ed, #2193b0, #d299c2);
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease infinite;
-  color: var(--text-dark);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  animation: fadeSlideUp 1.2s ease forwards;
-  opacity: 1;
-  transform: translateY(20px);
-}
-   @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-
-
-   .about-section {
-  width: 100%;
-  max-width: 1000px;
-  background: var(--glass-bg);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-  border-radius: 20px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  padding: 50px 32px;
-  margin-top: 40px;
-  text-align: center;
-  animation: fadeIn 1.2s ease-in-out;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.about-section h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 18px;
-  color: var(--primary-dark);
-  text-shadow: 0 0 12px rgba(0, 183, 255, 0.4);
-  transition: all 0.3s ease;
-}
-
-.about-section h2:hover {
-  color: black;
-  text-shadow: 0 0 18px rgba(0, 183, 255, 0.6);
-}
-
+  
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      color: rgb(0, 36, 77);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+     background: linear-gradient(60deg, #ff0080, #7928ca, #00c3ff, #ffbe00);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      z-index: -1;
+      opacity: 0.15;
+    }
+  
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+  
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #002630;
+      text-shadow: 0 0 15px rgba(159, 188, 223, 0.7);
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .logo::after {
+      content: "∑π∫";
+      position: absolute;
+      top: -15px;
+      right: -40px;
+      font-size: 1.5rem;
+      color: #437ec2;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0.5; transform: scale(1); }
+    }
+  
+    .tagline {
+      font-size: 1.2rem;
+      color: #002933;
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+  
+    .about-section {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      padding: 50px 40px;
+      margin-bottom: 40px;
+      text-align: center;
+      animation: fadeIn 1.2s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about-section::before {
+      content: "∛∞≠≈∝";
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      font-size: 8rem;
+      opacity: 0.03;
+      transform: rotate(-15deg);
+      font-family: 'Poppins', sans-serif;
+    }
+  
+    .about-section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      color: #2e7dd6;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .about-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #437ec2;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .about-section h2:hover::after {
+      transform: scaleX(1);
+    }
+  
+    .about-section h2:hover {
+      color: #00313d;
+      text-shadow: 0 0 18px rgba(255, 255, 255, 0.8);
+    }
+  
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
+  
     .about-section p {
-      font-size: 1.05rem;
-      color: #04455a;
+      font-size: 1.1rem;
+      color: #000000;
       margin-bottom: 32px;
       line-height: 1.8;
       max-width: 850px;
       margin-left: auto;
       margin-right: auto;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
-
+  
+    .mission-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+  
+    .mission-card {
+      flex: 1;
+      min-width: 280px;
+      max-width: 350px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mission-card::before {
+      content: "αβγθ";
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+      font-size: 4rem;
+      opacity: 0.05;
+      font-family: 'Poppins', sans-serif;
+    }
+  
+    .mission-card:hover {
+      transform: translateY(-10px) rotate(1deg);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    }
+  
+    .mission-card i {
+      font-size: 2.5rem;
+      color: #437ec2;
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+    }
+  
+    .mission-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #000000;
+    }
+  
+    .mission-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #001014;
+    }
+  
+    .team-section {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+  
+    .team-section h2 {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #111111;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+  
     .team {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 26px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
       margin-bottom: 36px;
     }
-
-  .member {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(14px);
-  border-radius: 18px;
-  padding: 24px;
-  box-shadow: 0 6px 25px rgba(0, 183, 255, 0.15);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.member:hover {
-  transform: translateY(-12px) scale(1.05);
-  box-shadow: 0 12px 35px rgba(0, 183, 255, 0.35);
-}
-
-.member img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--primary);
-  margin-bottom: 14px;
-  transition: transform 0.4s ease;
-}
-
-.member:hover img {
-  transform: rotate(-3deg) scale(1.08);
-}
-
+  
+    .member {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 30px 25px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .member::before {
+      content: "∵∴";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 1.5rem;
+      opacity: 0.1;
+      font-family: 'Poppins', sans-serif;
+    }
+  
+    .member:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    }
+  
+    .member-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #27AE60;
+      margin-bottom: 20px;
+      transition: transform 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(45deg, #4A90E2, #9B59B6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(24, 0, 0);
+      font-weight: bold;
+      font-size: 2.5rem;
+    }
+  
+    .member:hover .member-img {
+      transform: rotate(5deg) scale(1.08);
+    }
+  
     .name {
-      font-weight: 600;
-      font-size: 1.15rem;
-      color: var(--primary-dark);
-      margin-bottom: 4px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #0e0e0e;
+      margin-bottom: 5px;
     }
-
+  
     .role {
-      font-size: 0.92rem;
-      color: #333;
+      font-size: 1rem;
+      color: #2b2b2b;
+      margin-bottom: 15px;
+      font-weight: 500;
+      opacity: 0.7;
     }
-
-footer {
-  margin: 40px 0 15px;
-  font-size: 0.9rem;
-  color: #001033ce;
-  text-align: center;
-}
+  
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+  
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: rgb(0, 38, 59);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+  
+    .social-links a:hover {
+      transform: translateY(-3px) rotate(10deg);
+    }
     .back-home {
       position: fixed;
       top: 20px;
       left: 20px;
-      width: 42px;
-      height: 42px;
+      width: 50px;
+      height: 50px;
       font-size: 20px;
       font-weight: bold;
-      color: black;
-      background-color: rgba(255,255,255,0.65);
+      color: #2C3E50;
+      background-color: rgba(255,255,255,0.7);
       border-radius: 50%;
       text-align: center;
       display: flex;
@@ -163,93 +363,159 @@ footer {
       transition: all 0.3s ease;
       z-index: 999;
       backdrop-filter: blur(6px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
-
+  
     .back-home:hover {
       background-color: rgba(255,255,255,0.9);
-      transform: scale(1.1);
+      transform: scale(1.1) rotate(180deg);
     }
-
+  
+    footer {
+      margin: 40px 0 15px;
+      font-size: 0.9rem;
+      color: #303030;
+      text-align: center;
+      width: 100%;
+    }
+  
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
     @media (max-width: 768px) {
+      .logo {
+        font-size: 2rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+      }
+      
       .about-section {
-        padding: 22px 16px;
+        padding: 30px 20px;
       }
-
+  
       .about-section h2 {
-        font-size: 1.9rem;
+        font-size: 2rem;
       }
-
+  
       .about-section p {
-        font-size: 0.98rem;
+        font-size: 1rem;
       }
-
+  
       .team {
         grid-template-columns: 1fr;
         gap: 20px;
       }
-
-      .member img {
-        width: 90px;
-        height: 90px;
+  
+      .member-img {
+        width: 120px;
+        height: 120px;
       }
+      
       .back-home {
-        font-size: 18px;
+        width: 45px;
+        height: 45px;
         top: 15px;
         left: 15px;
       }
-
+  
       footer {
         font-size: 0.85rem;
       }
+      
+      .mission-card {
+        min-width: 100%;
+      }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </style>
 </head>
 <body>
-
-  <section class="about-section">
-    <h2>About the Team</h2>
-    <p>
-      We are a group of developers, designers, and educators with one mission: to build a smart, clean, and student-friendly platform for Class 11 learners.  
-      Being Class 11 students ourselves, we understand the challenges and are here to create a modern learning experience.
-    </p>
-
-    <div class="team">
-      <div class="member">
-        <img src="Developers_Logo.jpg" alt="Developers">
-        <div class="name">Developers</div>
-        <div class="role">Team</div>
+  <div class="container">
+    <header>
+      <div class="logo">About Us</div>
+      <div class="tagline">Transforming Mathematics Education for Class 11</div>
+    </header>
+    
+    <section class="about-section">
+      <h2>About Our Team</h2>
+      <p>
+        We are passionate Class 11 students and educators with a shared mission: to build a smart, intuitive, 
+        and student-friendly platform for mathematics learning. Being students ourselves, we understand the 
+        challenges you face and have designed this platform to make learning mathematics engaging, accessible, 
+        and effective. Our team combines technical expertise with educational insight to create the best 
+        possible learning experience.
+      </p>
+    </section>
+    
+    <div class="mission-section">
+      <div class="mission-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>Our Mission</h3>
+        <p>To make Class 11 mathematics accessible, understandable and enjoyable for every student.</p>
       </div>
-      <div class="member">
-        <img src="Creator.jpg" alt="Harshit">
-        <div class="name">Harshit</div>
-        <div class="role">Page Developer</div>
+      
+      <div class="mission-card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Our Vision</h3>
+        <p>To transform how mathematics is learned through technology and innovative teaching methods.</p>
+      </div>
+      
+      <div class="mission-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Our Approach</h3>
+        <p>Combining clear explanations, practical examples, and interactive learning tools.</p>
       </div>
     </div>
+    
+    <section class="team-section">
+      <h2>Meet Our Team</h2>
+      
+      <div class="team">
+        <div class="member">
+          <div class="member-img"><img src="tm_logo.jpg" style="height: 150px; max-width: fit-content; border-radius:50%; border: rgb(96, 165, 245) 2px solid;"></div>
+          <div class="name">DEVELOPERS</div>
+          <div class="role">Our Team</div>
+          <div class="social-links">
+            <a href="#https://whatsapp.com/channel/0029Vb67nwrFCCoY9N9oBi2t"><i class="fi fi-brands-whatsapp" style="font-size: 25px; position: relative; top:2px;"></i></a>
 
-  <a href="index.htm" class="back-home">✕</a>
+            <a href="https://t.me/deve_lopers"><i class="fi fi-brands-telegram" style="font-size: 25px; position: relative; top:2px;"></i></a>
 
-  <footer>
-    © 2025 Developers — Designed with ❤️ for Smart Learning
-  </footer>
-
+            <a href="https://x.com/Deve_lopers_?t=W-FH9eg6oleAhtnKx5y7BA&s=08 "><i class="fi fi-brands-twitter-alt" style="font-size: 25px; position: relative; top:2px;"></i></a>
+          </div>
+        </div>
+        
+        <div class="member">
+          <div class="member-img"><img src="Pictures/Creator.jpg" alt="creator" style="height: 150px; max-width: fit-content; border-radius:50%; border: rgb(96, 165, 245) 2px solid;"></div>
+          <div class="name">Harshit Pandey</div>
+          <div class="role">Developer and Designer
+            <br>
+           <i style="font-style:normal; text-align: center; display: block; margin: auto;"> Content provider</i>
+          </div>
+          <div class="social-links">
+            <a href="mailto:harshitthecodingwhiz@gmail.com"><i class="fi fi-rr-envelope" style="font-size: 25px; position: relative; top:2px;"></i></a>
+            <a href="https://t.me/+nIxarFzJ6QlhOTM1"><i class="fi fi-brands-telegram" style="font-size: 25px; position: relative; top:2px;"></i></a>
+            <a href="https://x.com/Deve_lopers_?t=W-FH9eg6oleAhtnKx5y7BA&s=08 "><i class="fi fi-brands-twitter-alt" style="font-size: 25px; position: relative; top:2px;"></i></a>
+          </div>
+        </div>
+    </section>
+    
+   <a href="javascript:history.back()" class="back-home">✕</a>
+    
+    <footer>
+      <div class="footer-content">
+        <div>© 2025 Class 11 Maths Notes — Designed with ❤️ for Smart Learning</div>
+      </div>
+    </footer>
+  </div>
+  
+  <script>
+    
+  </script>
 </body>
 </html>
