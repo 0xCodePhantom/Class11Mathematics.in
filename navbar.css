@@ -1,19 +1,91 @@
-/* ===== DARK MODE TOGGLE ===== */
-    .neon-toggle {
-      position:absolute; right:28px; top:18px; width:64px; height:34px;
-      border-radius:50px;
-      background: linear-gradient(135deg,#00d4ff,#0072ff);
-      box-shadow:0 0 10px rgba(0,162,255,0.6), inset 0 0 8px rgba(255,255,255,0.3);
-      cursor:pointer; transition:0.4s; overflow:hidden;
+/* Toggle 1 – Classic Smooth with Bounce */
+    .toggle1 {
+      position: fixed;
+      width: 60px;
+      height: 34px;
+      top: 1.5%;
+      z-index: 10000;
+      right: 28px;
     }
-    body.dark .neon-toggle {
-     background: linear-gradient(135deg,#22d3ee,#8b5cf6);
-      box-shadow:0 0 12px rgba(138,43,226,0.7), inset 0 0 6px rgba(255,255,255,0.2);
-    }
-    .neon-circle { position:absolute; top:3px; left:3px; width:28px; height:28px; border-radius:50%;   background:#fff; color:#fbbf24; display:flex; align-items:center; justify-content:center; font-size:17px; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:0.4s; }
-    .sun::before { content:"☀️"; } .moon::before { content:"🌙"; }
-    body.dark .neon-circle { transform:translateX(30px); background:#111; color:#facc15; }
 
+    .toggle1 input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider1 {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+       background: linear-gradient(90deg, #6a11cb, #2575fc);
+      transition: background 0.4s, border-color 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider1::before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: background 0.4s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .toggle1 input:checked + .slider1 {
+      background: linear-gradient(135deg,#2575fc, #6a11cb );
+    }
+
+    .toggle1 input:checked + .slider1::before {
+      transform: translateX(26px);
+      animation: bounce1 0.4s forwards;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    @keyframes bounce1 {
+      0% {
+        transform: translateX(0);
+      }
+      60% {
+        transform: translateX(28px);
+      }
+      80% {
+        transform: translateX(24px);
+      }
+      100% {
+        transform: translateX(26px);
+      }
+    }
+  /* Particle effect - refined for subtle, smooth appearance */
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.7); /* subtle white glow */
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 1s ease-out forwards;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(10px, -10px) scale(1.2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(20px, -20px) scale(0.8);
+        opacity: 0;
+    }
+}
 /* =========================
    NAVBAR
 ========================= */
@@ -51,7 +123,7 @@
 .navbar a {
   text-decoration:none;
   color: rgb(0,35,61);
-  font-weight:600; font-size:14px;
+  font-weight:600; font-size:1rem;
   transition: color 0.3s ease;
 }
 .navbar a:hover { color:#38bdf8; }
@@ -63,7 +135,7 @@
 .dropdown { position:relative; display:inline-block; }
 .dropdown button {
   background:none; border:none; cursor:pointer;
-  font-weight:600; font-size:14px;
+  font-weight:600; font-size:1rem;
   color: rgb(0,35,61); padding:10px 0;
   transition: color 0.3s ease;
 }
@@ -88,7 +160,7 @@
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  font-size: 12px;
+  font-size: 0.8rem;
   color: #00233f;
   transition: all 0.3s ease;
   border-radius: 12px;
@@ -137,7 +209,7 @@
 }
 
 
-/* ====== COOL GLASS BOTTOM NAVBAR ====== */
+/* ====== CLEAN MINIMAL BOTTOM NAVBAR ====== */
 .bottom-nav {
   display: none;
   position: fixed;
@@ -157,99 +229,163 @@
   transition: all 0.3s ease;
 }
 
-.bottom-nav a, .bottom-nav .dropdown button {
-  color: #002341;
+.bottom-nav a, 
+.bottom-nav .dropdown button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
-  margin: 0 10px;
-  position: relative;
-  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  min-width: 60px;
 }
 
-.bottom-nav a:hover, .bottom-nav .dropdown button:hover {
-  color: #38bdf8;
+.bottom-nav a i, 
+.bottom-nav .dropdown button i {
+  font-size: 18px;
+  margin-bottom: 1px;
+  transition: transform 0.2s ease;
 }
 
-/* Dropdown content above the button */
+.bottom-nav a:hover, 
+.bottom-nav .dropdown button:hover {
+  color: #40bff8;
+}
+
+.bottom-nav a:hover i, 
+.bottom-nav .dropdown button:hover i {
+  transform: translateY(-2px);
+}
+
+/* Dropdown styling */
+.bottom-nav .dropdown {
+  position:static;
+
+}
+
 .bottom-nav .dropdown-content {
-  bottom: 100%;  /* show above */
-  top: auto;
-  right: 0;
-  min-width: 200px;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(255, 255, 255, 0.95);
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 10px;
+  min-width: 180px;
   opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease, transform 0.3s ease;
-  z-index: 1000;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.bottom-nav .dropdown-content::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  clip-path: polygon(0% 0%, 100% 0%, 50% 50%);
+  rotate: 45deg;
 }
 
 .bottom-nav .dropdown:hover .dropdown-content {
   opacity: 1;
-  pointer-events: auto;
-  transform: translateY(-5px);
+  visibility: visible;
+  transform: translateY(-100px);
 }
 
 /* Dropdown items */
 .bottom-nav .dropdown-content a {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  font-size: 13px;
+  gap: 10px;
+  padding: 10px 12px;
+   font-size: 13px;
+   font-weight: 600;
   color: #00233f;
   border-radius: 12px;
   transition: all 0.3s ease;
+  min-width: auto;
+  margin: 2px 0;
 }
-.bottom-nav .dropdown-content a:hover {
-  background: #ace0fc50;
-  transform: translateX(8px);
-  color: black;
-}
+
 .bottom-nav .dropdown-content a i {
   font-size: 12px;
   color: #0ea5e9;
   transition: transform 0.3s ease, color 0.3s ease;
 }
+
+.bottom-nav .dropdown-content a:hover {
+ background: #ace0fc50;
+  transform: translateX(8px);
+  color: black;
+}
+
 .bottom-nav .dropdown-content a:hover i {
-  transform: rotate(15deg) scale(1.2);
+ transform: rotate(15deg) scale(1.2);
   color: #ff00bf;
 }
 
 /* Show bottom navbar only on mobile */
-@media screen and (max-width: 768px){
+@media screen and (max-width: 900px) {
   .bottom-nav {
     display: flex;
   }
-  .navbar .menu { display: none !important; } /* hide top menu */
+  .navbar .menu { 
+    display: none !important; 
+  }
 }
 
-.bottom-nav a i {
+/* Scroll to top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #00d4ff, #0072ff);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+  z-index: 999;
+  border: none;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.6);
+}
+
+.scroll-to-top i {
   font-size: 20px;
-  margin-bottom: 3px;
-  transition: color 0.3s;
-}
-.bottom-nav a:hover i,
-.bottom-nav a:hover { color: #38bdf8; }
-
-
-
-/* ====== MOBILE TOGGLE ADJUSTMENTS ====== */
-@media (max-width: 768px) {
-  .neon-toggle {
-    position: fixed; /* stay visible on scroll */
-    top: 10px;       /* small top margin */
-    right: 10px;     /* small right margin */
-    width: 48px;     /* smaller width */
-    height: 26px;    /* smaller height */
-    z-index: 1100;   /* above bottom nav and other elements */
-  }
-  .neon-circle {
-    width: 22px;
-    height: 22px;
-    font-size: 14px;
-  }
 }
