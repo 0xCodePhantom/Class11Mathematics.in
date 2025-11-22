@@ -1,116 +1,73 @@
-/* Toggle 1 – Classic Smooth with Bounce */
-    .toggle1 {
-      position: fixed;
-      width: 60px;
-      height: 34px;
-      top: 1.5%;
-      z-index: 10000;
-      right: 28px;
+/* selection customization */
+    ::selection {
+      background: #11d63f3e;
+      color: #313131;
     }
 
-    .toggle1 input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider1 {
-      position: absolute;
-      cursor: pointer;
-      top: 0; left: 0; right: 0; bottom: 0;
-       background: linear-gradient(90deg, #6a11cb, #2575fc);
-      transition: background 0.4s, border-color 0.4s;
-      border-radius: 34px;
-    }
-
-    .slider1::before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      border-radius: 50%;
-      transition: background 0.4s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-
-    .toggle1 input:checked + .slider1 {
-      background: linear-gradient(135deg,#2575fc, #6a11cb );
-    }
-
-    .toggle1 input:checked + .slider1::before {
-      transform: translateX(26px);
-      animation: bounce1 0.4s forwards;
-      background: #fff;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    }
-
-    @keyframes bounce1 {
-      0% {
-        transform: translateX(0);
-      }
-      60% {
-        transform: translateX(28px);
-      }
-      80% {
-        transform: translateX(24px);
-      }
-      100% {
-        transform: translateX(26px);
-      }
-    }
-  /* Particle effect - refined for subtle, smooth appearance */
-.particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.7); /* subtle white glow */
-    border-radius: 50%;
-    pointer-events: none;
-    animation: float 1s ease-out forwards;
+/* ====== NEON TOGGLE ====== */
+.neon-toggle {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  width: 64px;
+  height: 34px;
+  border-radius: 50px;
+  background: linear-gradient(135deg,#00d4ff,#0072ff);
+  box-shadow: 0 0 10px rgba(0,162,255,0.6), inset 0 0 8px rgba(255,255,255,0.3);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  z-index: 1000;
 }
 
-@keyframes float {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translate(10px, -10px) scale(1.2);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translate(20px, -20px) scale(0.8);
-        opacity: 0;
-    }
+.neon-circle {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:#fff; color:#fbbf24;
+  font-size: 17px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: 0.4s;
 }
-/* =========================
+
+.sun::before { content:"☀️"; }
+.moon::before { content:"🌙"; }
+
+body.dark .neon-circle { transform: translateX(30px); background: #111; color: #facc15; }
+body.dark .neon-toggle {
+  background: linear-gradient(135deg,#22d3ee,#8b5cf6);
+  box-shadow:0 0 12px rgba(138,43,226,0.7), inset 0 0 6px rgba(255,255,255,0.2);
+}
+    /* =========================
    NAVBAR
 ========================= */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding:10px 40px;
+  padding: 14px 40px;
   flex-wrap: nowrap;
   backdrop-filter: blur(8px);
   position: sticky; top:0;
-  z-index:  1000;
+  z-index:1000;
 }
 
 .navbar .logo {
   font-size: 24px;
   font-weight: bold;
-  font-family: 'Nata Sans' sans-serif;
+  font-family: 'Nata Sans';
   letter-spacing:1px;
   color:#000;
 }
 
-
-    .navbar .logo span{
-      font-family: 'Nata Sans';
-    }
+.navbar .logo span{
+  font-family: 'Nata Sans';
+}
 
 .navbar .menu {
   display:flex;
@@ -123,23 +80,27 @@
 .navbar a {
   text-decoration:none;
   color: rgb(0,35,61);
-  font-weight:600; font-size:1rem;
+  font-weight:600; font-size:14px;
   transition: color 0.3s ease;
 }
 .navbar a:hover { color:#38bdf8; }
 
-/* =========================
-   DROPDOWN
-========================= */
-
-.dropdown { position:relative; display:inline-block; }
+/* Dropdown */
+.dropdown { 
+  position:relative; display:inline-block; 
+}
 .dropdown button {
   background:none; border:none; cursor:pointer;
-  font-weight:600; font-size:1rem;
+  font-weight:600; font-size:14px;
   color: rgb(0,35,61); padding:10px 0;
   transition: color 0.3s ease;
 }
-.dropdown button:hover { color:#38bdf8; }
+.dropdown button:hover { color:#38bdf8;
+}
+.dropdown button:hover i{
+  transform: scale(2.5px);
+}
+
 
 .dropdown-content {
     position: absolute;
@@ -160,7 +121,7 @@
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  font-size: 0.8rem;
+  font-size: 12px;
   color: #00233f;
   transition: all 0.3s ease;
   border-radius: 12px;
@@ -168,7 +129,6 @@
 .dropdown-content a:hover { background: #ace0fc50 ;
   transform: translateX(8px); color: black;}
 .dropdown:hover .dropdown-content { opacity:1; pointer-events:auto; max-height:500px; }
-
 
 .dropdown-content a i {
   font-size: 12px;
@@ -179,33 +139,12 @@
   transform: rotate(15deg) scale(1.2);
   color: #ff00bf;
 }
-
 .arrow{
   display: inline-block;
   transition: transform 0.3s ease;
 }
 .dropdown:hover .arrow{
   transform: rotate(180deg);
-}
-
-/* Mobile Navbar Logo Adjustment */
-@media (max-width:600px) {
-  .navbar .logo {
-    font-size: 20px; /* smaller font */
-  }
-  .navbar .logo i {
-    font-size: 20px; /* smaller icon */
-    top: 2px; /* adjust vertical alignment */
-  }
-  /* Change text from "Class 11 Mathematics" to "11th Maths" */
-  .navbar .logo::after {
-    content: "11th Maths";
-    font-family: 'Nata Sans', sans-serif;
-  }
-  /* Hide the original text on mobile */
-  .navbar .logo span {
-    display: none;
-  }
 }
 
 
