@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+  <title>Class 11 Mathematics</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link href="navbar.css" rel="stylesheet">
+  <link href="loader and scroll progress.css" rel="stylesheet">
+  <link href="custom-scrollbar.css" rel="stylesheet">
+
+  <style>
+    /* ====== GLOBAL STYLES ====== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #f0f9ff, #e0f7fa, #e8f0ff, #f9f9f9);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: #222;
+      font-family: 'Poppins';
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+
+
+/* ====== CARDS ====== */
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin: 120px auto 50px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.card {
+  flex: 1 1 300px;
+  max-width: 360px;
+  min-height: 200px;
+  border-radius: 25px;
+  padding: 25px 20px;
+  text-align: center;
+  font-family: 'Mozilla Headline';
+  font-size: 32px;
+  font-weight: 600;
+  color: #00224d;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: all 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+.card p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 12px;
+  color: #333;
+  line-height: 1.6;
+  padding: 0 5px;
+}
+
+/* Unique Card Gradients */
+.notes { background: linear-gradient(135deg, #d0f4ff, #aee3ff, #e1f7ff, #f0f9ff); animation: gradientMove 6s ease infinite; background-size: 400% 400%; top: 20px; }
+.summary { background: linear-gradient(135deg, #d2f9f0, #aefde2, #e0fff8, #f9fffa); animation: gradientMove 4s ease infinite; background-size: 400% 400%; top: -50px; }
+.formula { background: linear-gradient(135deg, #f3d9ff, #e0baff, #f9e5ff, #fff0ff); animation: gradientMove 8s ease infinite; background-size: 400% 400%; top: 20px; }
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.dark .notes { background: linear-gradient(135deg, #1a1a2e, #162447, #1f4068, #1a1a2e); animation: cardGradientAlt 8s ease infinite; color: #fff; }
+body.dark .summary { background: linear-gradient(135deg, #2c3e50, #34495e, #2c3e50, #2c3e50); animation: cardGradientAlt 10s ease infinite; color: #fff; }
+body.dark .formula { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364, #0f2027); animation: cardGradientAlt 12s ease infinite; color: #fff; }
+
+@keyframes cardGradientAlt {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body.dark .card p { color: #ddd; }
+
+/* ====== BUTTON ====== */
+.exp-btn {
+  margin-top: 18px;
+  display: inline-block;
+  padding: 10px 22px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+}
+.exp-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 22px rgba(0, 114, 255, 0.45);
+}
+
+/* ====== FAQ SECTION ====== */
+.faq-section { max-width: 900px; margin: 40px auto; padding: 20px; }
+.faq-title { text-align: center; font-size: 2rem; font-weight: 700; margin-bottom: 30px; color: #003366; }
+.faq-container { display: flex; flex-direction: column; gap: 15px; }
+.faq-item {
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+}
+.faq-item:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+.faq-question {
+  width: 100%;
+  padding: 18px 22px;
+  text-align: left;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #003366;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-question span { font-size: 1.5rem; transition: transform 0.3s ease; }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+  transition: all 0.4s ease;
+}
+.faq-answer p { padding: 12px 0 18px; }
+
+.faq-item.active .faq-answer { max-height: 200px; }
+.faq-item.active .faq-question span { transform: rotate(45deg); }
+
+/* ====== FOOTER ====== */
+footer {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  margin-top: auto;
+  padding: 15px;
+  opacity: 0.8;
+}
+
+/* ====== DARK MODE ====== */
+body.dark { background: linear-gradient(120deg, #141e30, #243b55); color: white; }
+body.dark .faq-title { color: #f0f0f0; }
+body.dark .faq-item { background: rgba(30,30,30,0.7); box-shadow: 0 6px 15px rgba(255,255,255,0.05); }
+body.dark .faq-question { color: #e0e0e0; }
+body.dark .faq-answer { color: #ccc; }
+body.dark .exp-btn { background: linear-gradient(to right, #38bdf8, #0f172a); box-shadow: 0 4px 15px rgba(56,189,248,0.4); }
+body.dark .exp-btn:hover { box-shadow: 0 6px 22px rgba(56,189,248,0.6); }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 1200px) { .notes, .summary, .formula { left: auto; top: auto; margin: 20px auto; } }
+@media (max-width: 768px) {
+  .cards-wrapper { gap: 20px; margin-top: 80px; }
+  .card { font-size: 26px; min-height: 160px; }
+  .card p { font-size: 12px; }
+  .notes, .summary, .formula { font-size: 24px; min-height: 120px; width: 90%; margin: 15px auto; }
+  .notes p, .summary p, .formula p { font-size: 12px; }
+  .exp-btn { font-size: 14px; padding: 8px 16px; }
+}
+@media (max-width: 600px) { footer { font-size: 0.8rem; padding: 10px; } }
+/* Mobile Navbar Logo Adjustment */
+@media (max-width:600px) {
+  .navbar .logo {
+    font-size: 20px; /* smaller font */
+  }
+  .navbar .logo i {
+    font-size: 20px; /* smaller icon */
+    top: 2px; /* adjust vertical alignment */
+  }
+  /* Change text from "Class 11 Mathematics" to "11th Maths" */
+  .navbar .logo::after {
+    content: " 11th Maths";
+  }
+  /* Hide the original text on mobile */
+  .navbar .logo span {
+    display: none;
+  }
+}
+.arrow{
+  display:inline-block;
+  transition: transform 0.5s ease;
+}
+
+/* ====== COOL GLASS BOTTOM NAVBAR ====== */
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 20px;               /* lifted from bottom */
+  left: 50%;
+  transform: translateX(-50%); /* center horizontally */
+  width: 95%;
+  max-width: 450px;
+  background: rgba(255, 255, 255, 0.15); /* transparent glass */
+  backdrop-filter: blur(12px) saturate(180%); /* frosted glass effect */
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border-radius: 25px;       /* rounded corners */
+  justify-content: space-around;
+  padding: 12px 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.bottom-nav a, .bottom-nav .dropdown button {
+  color: #002341;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 0 10px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.bottom-nav a:hover, .bottom-nav .dropdown button:hover {
+  color: #38bdf8;
+}
+
+/* Dropdown content above the button */
+.bottom-nav .dropdown-content {
+  bottom: 100%;  /* show above */
+  top: auto;
+  right: 0;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.bottom-nav .dropdown:hover .dropdown-content {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-5px);
+}
+
+/* Dropdown items */
+.bottom-nav .dropdown-content a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #00233f;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.bottom-nav .dropdown-content a:hover {
+  background: #ace0fc50;
+  transform: translateX(8px);
+  color: black;
+}
+.bottom-nav .dropdown-content a i {
+  font-size: 12px;
+  color: #0ea5e9;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.bottom-nav .dropdown-content a:hover i {
+  transform: rotate(15deg) scale(1.2);
+  color: #ff00bf;
+}
+
+/* Show bottom navbar only on mobile */
+@media screen and (max-width: 768px){
+  .bottom-nav {
+    display: flex;
+  }
+  .navbar .menu { display: none !important; } /* hide top menu */
+}
+
+.bottom-nav a i {
+  font-size: 20px;
+  margin-bottom: 3px;
+  transition: color 0.3s;
+}
+.bottom-nav a:hover i,
+.bottom-nav a:hover { color: #38bdf8; }
+
+
+
+/* ====== MOBILE TOGGLE ADJUSTMENTS ====== */
+@media (max-width: 768px) {
+  .neon-toggle {
+    position: fixed; /* stay visible on scroll */
+    top: 10px;       /* small top margin */
+    right: 10px;     /* small right margin */
+    width: 48px;     /* smaller width */
+    height: 26px;    /* smaller height */
+    z-index: 1100;   /* above bottom nav and other elements */
+  }
+  .neon-circle {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+}
+
+
+/* Already exists but reinforced for very small screens */
+@media (max-width: 480px) {
+  .neon-toggle {
+    top: 8px;
+    right: 8px;
+    width: 46px;
+    height: 24px;
+  }
+  .neon-circle {
+    width: 20px;
+    height: 20px;
+    font-size: 13px;
+  }
+}
+
+  </style>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo"><i class="fi fi-ss-book-open-cover" style="position: relative; left: -2px; top: 3px;"></i> <span>Class 11 Mathematics</span></div>
+    <div class="menu">
+      <a href="index.htm">Home</a>
+      <div class="dropdown">
+        <button>Extras <span class="arrow">▾</span></button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm">About</a>
+    </div>
+    <div class="neon-toggle" id="theme-toggle">
+      <div class="neon-circle sun"></div>
+    </div>
+</nav>
+
+<!-- BOTTOM NAVBAR FOR MOBILE -->
+<div class="bottom-nav">
+  <a href="index.htm"><i class="fi fi-ss-home" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i> Home</a>
+      <div class="dropdown">
+       <button>
+          <i class="fi fi-ss-apps"></i>
+          <span>Extras</span>
+        </button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm"> <i class="fi fi-ss-user" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i>About</a>
+</div>
+
+
+<!-- ==== CARDS ==== -->
+<div class="cards-wrapper">
+  <div class="card notes">Notes 
+    <p>Explore comprehensive notes covering every concept in detail, to study and revise easily.</p>
+    <button onclick="window.location.href='notes.htm'" class="exp-btn">Explore ➲</button>
+  </div>
+  
+  <div class="card summary">Summary
+    <p>Get a crisp overview of each chapter with summaries that highlight the most important points.</p>
+    <button onclick="window.location.href='summary.htm'" class="exp-btn">Go ➲</button>
+  </div>
+  
+  <div class="card formula">Formulas
+    <p>Find all the essential formulas in one place for quick reference before exams.</p>
+    <button onclick="window.location.href='Formula_Page.htm'" class="exp-btn">Take a View ➲</button>
+  </div>
+</div>
+
+<!-- ==== FAQ SECTION ==== -->
+<section class="faq-section">
+  <h2 class="faq-title">Frequently Asked Questions ❓</h2>
+  <div class="faq-container">
+    <div class="faq-item">
+      <button class="faq-question">Q1. Is NCERT enough for Class 11 Mathematics? <span>+</span></button>
+      <div class="faq-answer">
+        <p>Yes, NCERT is the foundation book. For competitive exams, practice additional problems after NCERT.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q2. What topics are covered here? <span>+</span></button>
+      <div class="faq-answer">
+        <p>This website includes detailed Notes of all Chapters, Summary, NCERT Solutions, Chapterwise Formulas, Important Questions and PYQs</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q3. Are the formulas and notes reliable? <span>+</span></button>
+      <div class="faq-answer">
+        <p>Yes, all content is verified with NCERT textbooks and standard reference books.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q4. Can I download the notes and formulas? <span>+</span></button>
+      <div class="faq-answer">
+        <p>Notes and formula sheets are available in PDF format for offline use.</p>
+      </div>
+    </div>
+
+     <div class="faq-item">
+      <button class="faq-question">Q5. Will new content be added regularly? <span>+</span></button>
+      <div class="faq-answer">
+        <p>The site is updated frequently with more notes, examples, and practice sets.</p>
+      </div>
+    </div>
+
+     <div class="faq-item">
+      <button class="faq-question">Q6. Who created this website? <span>+</span></button>
+      <div class="faq-answer">
+        <p>This site is developed by Harshit/Developers to support students in mastering Class 11 Mathematics.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  BY: DEVELOPERS 💻 | Made with ❤️ for Class 11 Aspirants
+</footer>
+
+<script>
+// Toggle JS (same as before)
+document.addEventListener("DOMContentLoaded", function() {
+  const body = document.body;
+  const toggle = document.getElementById("theme-toggle");
+  const circle = toggle.querySelector(".neon-circle"); 
+
+  // Theme load from localStorage
+  if(localStorage.getItem("dark-mode") === "true") {
+    body.classList.add("dark");
+    circle.classList.replace("sun","moon");
+  } else {
+    body.classList.remove("dark");
+    circle.classList.replace("moon","sun");
+  }
+
+  // Theme toggle
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    const isDark = body.classList.contains("dark");
+    localStorage.setItem("dark-mode", isDark);
+    if(isDark) circle.classList.replace("sun","moon");
+    else circle.classList.replace("moon","sun");
+  });
+});
+
+// FAQ toggle
+document.addEventListener("DOMContentLoaded", function() {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach(item => {
+    const button = item.querySelector(".faq-question");
+    button.addEventListener("click", () => {
+      item.classList.toggle("active"); // open/close
+
+      // Optional: close other FAQs when one opens
+      faqItems.forEach(otherItem => {
+        if(otherItem !== item) otherItem.classList.remove("active");
+      });
+    });
+  });
+});
+</script>
+
+</body>
+</html>

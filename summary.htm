@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class 11 Maths Notes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fluent-icons/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="custom-scrollbar.css">
+    <link rel="stylesheet" href="loader-and-scroll-progress.css">
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+        body {
+            background: #f5f7fa;
+            color: #222;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        body.dark { background: linear-gradient(120deg, #141e30, #243b55); color: white; }
+        body.dark .chapter { background: #2f4265; border: 1px solid #333; box-shadow: 0 4px 10px rgba(255,255,255,0.05); }
+        body.dark .intro {color: white;}
+        body.dark .chapter h2 { color: #90caf9; }
+        body.dark .notes { color: #ddd; }
+
+
+        h1 {
+font-size: 2.6rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    background-image: linear-gradient(90deg, #2563eb, #06b6d4, #10b981);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+        }
+
+        .chapter {
+            background: #fff;
+            padding: 25px;
+            border-radius: 14px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+            transition: 0.2s;
+        }
+
+        .chapter:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        }
+
+        .chapter h2 {
+            margin-bottom: 12px;
+            color: #0d47a1;
+        }
+
+        .notes {
+            line-height: 1.65;
+            font-size: 1rem;
+            margin-top: 10px;
+            white-space: pre-line;
+        }
+        .intro{
+          margin-bottom: 50px; color:#555; font-size:1.1rem; 
+        }
+    </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo"><i class="fi fi-ss-book-open-cover" style="position: relative; left: -2px; top: 3px;"></i> <span>Class 11 Mathematics</span></div>
+    <div class="menu">
+      <a href="index.htm">Home</a>
+      <div class="dropdown">
+        <button>Extras <span class="arrow">▾</span></button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm">About</a>
+    </div>
+    <div class="neon-toggle" id="theme-toggle">
+      <div class="neon-circle sun"></div>
+    </div>
+</nav>
+
+<!-- BOTTOM NAVBAR FOR MOBILE -->
+<div class="bottom-nav">
+  <a href="index.htm"><i class="fi fi-ss-home" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i> Home</a>
+      <div class="dropdown">
+       <button>
+          <i class="fi fi-ss-apps"></i>
+          <span>Extras</span>
+        </button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm"> <i class="fi fi-ss-user" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i>About</a>
+</div>
+<br>
+    <div class="container">
+        <h1>Class 11 Maths | Summary</h1>
+        <p class="intro">Get the perfect and minimal summary of each chapter</p>
+
+        <!-- Chapter 1: Sets -->
+        <div class="chapter">
+            <h2>Chapter 1: Sets</h2>
+            <div class="notes">
+A set is a collection of well-defined objects. Well-defined means every member is clearly identifiable.
+
+Examples:
+• A = {1, 2, 3}
+• B = {x | x is an even natural number}
+• Empty Set: φ
+
+Types of Sets:
+• Finite: Countable number of elements.
+• Infinite: Uncountable (like natural numbers).
+• Equal Sets: Same elements.
+• Subset: A ⊆ B means every element of A is in B.
+
+Operations on Sets:
+• Union A ∪ B – all elements from both.
+• Intersection A ∩ B – common elements.
+• Difference A − B – elements only in A.
+• Complement A′ – universal set minus A.
+
+Venn Diagrams:
+Used to visually represent sets. Helps in solving union/intersection problems.
+
+Important Results:
+• n(A ∪ B) = n(A) + n(B) − n(A ∩ B)
+• For disjoint sets: n(A ∪ B) = n(A) + n(B)
+            </div>
+        </div>
+
+        <!-- Chapter 2: Relations & Functions -->
+        <div class="chapter">
+            <h2>Chapter 2: Relations & Functions</h2>
+            <div class="notes">
+Relation: A relation between two sets A and B is any subset of A × B.
+Example: If A = {1,2} and B = {3,4}, relation R may be {(1,3), (2,4)}.
+
+Function: A relation where each input has exactly one output.
+Example: f(x) = x².
+
+Important Terms:
+• Domain: All possible inputs.
+• Codomain: All possible outputs.
+• Range: Actual outputs.
+
+Types of Functions:
+• One-one (Injective)
+• Onto (Surjective)
+• Bijective (both)
+• Constant function
+• Identity function
+            </div>
+        </div>
+
+        <!-- Chapter 3: Trigonometric Functions -->
+        <div class="chapter">
+            <h2>Chapter 3: Trigonometric Functions</h2>
+            <div class="notes">
+Conversion of Degrees & Radians:
+π radians = 180°
+
+Trigonometric Ratios:
+sin, cos, tan, cot, sec, cosec.
+
+Identities:
+1. sin²θ + cos²θ = 1
+2. 1 + tan²θ = sec²θ
+3. 1 + cot²θ = cosec²θ
+
+Graphs:
+• Sine and cosine are periodic with period 2π.
+• Tangent has period π.
+
+Principal Values:
+Defines the main angle used by inverse trigonometric functions.
+            </div>
+        </div>
+
+        <!-- Chapter 4: Complex Numbers -->
+        <div class="chapter">
+            <h2>Chapter 4: Complex Numbers</h2>
+            <div class="notes">
+Complex number is of form: z = a + ib.
+Here a = real part, b = imaginary part.
+
+Operations:
+• Addition: (a+ib)+(c+id)
+• Multiplication
+• Conjugate: a − ib
+• Modulus: |z| = √(a² + b²)
+
+Argand Plane:
+Graphical representation of complex numbers.
+            </div>
+        </div>
+
+        <!-- Chapter 5: Linear Inequalities -->
+        <div class="chapter">
+            <h2>Chapter 5: Linear Inequalities</h2>
+            <div class="notes">
+Linear inequality is like a linear equation but uses <, >, ≤, ≥.
+
+Solving Inequalities:
+1. Shift terms normally.
+2. Multiply/divide carefully:
+   If both sides multiplied or divided by negative → sign reverses.
+
+Graphing Inequalities:
+• One variable: Show region on number line.
+• Two variables: Region in plane; boundary line solid or dashed.
+            </div>
+        </div>
+
+        <!-- Chapter 6: Permutations and Combinations -->
+        <div class="chapter">
+            <h2>Chapter 6: Permutations and Combinations</h2>
+            <div class="notes">
+Permutation: Arrangement where order matters.
+Formula: P(n, r) = n!/(n−r)!
+
+Combination: Selection where order doesn’t matter.
+Formula: C(n, r) = n!/[r!(n−r)!]
+
+Applications:
+• Arranging digits
+• Forming committees
+• Probability
+            </div>
+        </div>
+
+        <!-- Chapter 7: Binomial Theorem -->
+        <div class="chapter">
+            <h2>Chapter 7: Binomial Theorem</h2>
+            <div class="notes">
+Expansion of (a + b)^n for natural number n.
+
+General Term:
+T(k+1) = C(n,k) a^(n−k) b^k
+
+Middle Term:
+If n even → 1 middle term
+If n odd → 2 middle terms
+            </div>
+        </div>
+
+        <!-- Chapter 8: Sequences and Series -->
+        <div class="chapter">
+            <h2>Chapter 8: Sequences and Series</h2>
+            <div class="notes">
+Arithmetic Progression (AP):
+a, a+d, a+2d...
+General term: aₙ = a + (n−1)d
+Sum: Sₙ = n/2[2a + (n−1)d]
+
+Geometric Progression (GP):
+a, ar, ar²...
+Sum: Sₙ = a(rⁿ−1)/(r−1)
+            </div>
+        </div>
+
+        <!-- Chapter 9: Straight Lines -->
+        <div class="chapter">
+            <h2>Chapter 9: Straight Lines</h2>
+            <div class="notes">
+Slope:
+m = (y₂ − y₁)/(x₂ − x₁)
+
+Equation Forms:
+• Slope-intercept: y = mx + c
+• Two-point form
+• Intercept form
+• Normal form
+
+Angle Between Lines:
+tanθ = |(m₁ − m₂)/(1+m₁m₂)|
+            </div>
+        </div>
+
+        <!-- Chapter 10: Conic Sections -->
+        <div class="chapter">
+            <h2>Chapter 10: Conic Sections</h2>
+            <div class="notes">
+Parabola:
+y² = 4ax
+Ellipse:
+x²/a² + y²/b² = 1
+Hyperbola:
+x²/a² − y²/b² = 1
+
+Each has focus, directrix, eccentricity.
+            </div>
+        </div>
+
+        <!-- Chapter 11: Introduction to 3D Geometry -->
+        <div class="chapter">
+            <h2>Chapter 11: Introduction to 3D Geometry</h2>
+            <div class="notes">
+Coordinates: (x, y, z)
+
+Distance Formula:
+√[(x₂−x₁)²+(y₂−y₁)²+(z₂−z₁)²]
+
+Section Formula:
+Internal and external division of line segment.
+            </div>
+        </div>
+
+        <!-- Chapter 12: Limits and Derivatives -->
+        <div class="chapter">
+            <h2>Chapter 12: Limits and Derivatives</h2>
+            <div class="notes">
+Limit: Approach value of function.
+Examples:
+lim sinx/x = 1
+
+Derivative:
+Rate of change.
+Basic Rules:
+d/dx x^n = nx^(n−1)
+d/dx sinx = cosx
+            </div>
+        </div>
+
+        <!-- Chapter 13: Statistics -->
+        <div class="chapter">
+            <h2>Chapter 13: Statistics</h2>
+            <div class="notes">
+Measures:
+• Mean deviation
+• Variance
+• Standard deviation
+
+Variance:
+σ² = Σ(x−mean)² / N
+            </div>
+        </div>
+
+        <!-- Chapter 14: Probability -->
+        <div class="chapter">
+            <h2>Chapter 14: Probability</h2>
+            <div class="notes">
+Probability = favourable outcomes / total outcomes.
+Includes sample space, events, complementary events, addition theorem.
+            </div>
+        </div>
+
+    </div>
+
+      <button class="scroll-to-top"></button>
+
+    <script src="scroll-progress.js"></script>
+    <script src="scrl to top.js"></script>
+    <script>
+ document.addEventListener("DOMContentLoaded", function() {
+  const body = document.body;
+  const toggle = document.getElementById("theme-toggle");
+  const circle = toggle.querySelector(".neon-circle"); 
+
+  // Theme load from localStorage
+  if(localStorage.getItem("dark-mode") === "true") {
+    body.classList.add("dark");
+    circle.classList.replace("sun","moon");
+  } else {
+    body.classList.remove("dark");
+    circle.classList.replace("moon","sun");
+  }
+
+  // Theme toggle
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    const isDark = body.classList.contains("dark");
+    localStorage.setItem("dark-mode", isDark);
+    if(isDark) circle.classList.replace("sun","moon");
+    else circle.classList.replace("moon","sun");
+  });
+
+
+});
+    </script>
+    </body>
+    </html>

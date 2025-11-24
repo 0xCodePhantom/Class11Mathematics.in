@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Important Questions</title>
    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
-  <link rel="stylesheet" href="loader and scroll progress.css">
+     <link rel="stylesheet" href="loader and scroll progress.css">
   <link rel="stylesheet" href="navbar.css">
   <link rel="stylesheet" href="custom-scrollbar.css">
 <style>
@@ -28,15 +28,6 @@
       color: white;
     }
     body.dark p { color: white; }
-
-    body.dark .neon-toggle {
-     background: linear-gradient(135deg,#22d3ee,#8b5cf6);
-      box-shadow:0 0 12px rgba(138,43,226,0.7), inset 0 0 6px rgba(255,255,255,0.2);
-    }
-    .neon-circle { position:absolute; top:3px; left:3px; width:28px; height:28px; border-radius:50%;   background:#fff; color:#fbbf24; display:flex; align-items:center; justify-content:center; font-size:17px; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:0.4s; }
-    .sun::before { content:"☀️"; } .moon::before { content:"🌙"; }
-    body.dark .neon-circle { transform:translateX(30px); background:#111; color:#facc15; }
-
     /* ===== INDEX SECTION ===== */
     .questions-index { text-align:center; padding:70px 20px; }
     .questions-index h1 {
@@ -55,6 +46,7 @@
       max-width:1000px;
       margin:0 auto;
     }
+   
     .chapter-card {
       padding:20px;
       border-radius:14px;
@@ -82,12 +74,6 @@
       box-shadow:0 8px 24px rgba(0,0,0,0.3);
       background: linear-gradient(135deg, rgba(56,189,248,0.4), rgba(6,214,160,0.4));
     }
-    @media screen and (max-width:600px) {
-      .questions-index h1 { font-size:2rem; }
-      .questions-index p { font-size:1rem; }
-      .chapters-list { grid-template-columns:1fr; gap:16px; margin:0 10px; }
-    }
-
 </style>
 </head>
 <body>
@@ -97,7 +83,7 @@
     <div class="menu">
       <a href="index.htm">Home</a>
       <div class="dropdown">
-        <button>Extras <span class="arrow">▾</span></button>
+        <button>Extras <span  claass="arrow">▾</span></button>
         <div class="dropdown-content">
           <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
           <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
@@ -105,7 +91,7 @@
           <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
         </div>
       </div>
-       <a href="About_Page.htm">About</a>
+        <a href="About_Page.htm">About</a>
     </div>
     <div class="neon-toggle" id="theme-toggle">
       <div class="neon-circle sun"></div>
@@ -116,7 +102,7 @@
 <div class="bottom-nav">
   <a href="index.htm"><i class="fi fi-ss-home" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i> Home</a>
       <div class="dropdown">
-       <button>
+        <button>
           <i class="fi fi-ss-apps"></i>
           <span>Extras</span>
         </button>
@@ -129,25 +115,29 @@
       </div>
       <a href="About_Page.htm"> <i class="fi fi-ss-user" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i>About</a>
 </div>
+
+
+  </nav>
+
   <section class="questions-index">
-    <h1>Chapterwise Notes</h1>
-    <p>Select a chapter to view its dedicated notes:</p>
+    <h1>Chapterwise Important Questions</h1>
+    <p>Select a chapter to view its important questions:</p>
 
     <div class="chapters-list">
-      <a href="1.htm" class="chapter-card">Chapter 1 – SETS <i class="fi fi-sr-link"></i></a>
-      <a href="2.htm" class="chapter-card">Chapter 2 – RELATIONS & FUNCTIONS <i class="fi fi-sr-share"></i></a>
-      <a href="3.htm" class="chapter-card">Chapter 3 – TRIGONOMETRIC FUNCTIONS <i class="fi fi-sr-triangle"></i></a>
-      <a href="4.htm" class="chapter-card">Chapter 4 – COMPLEX NUMBERS <i class="fi fi-sr-circle"></i></a>
-      <a href="5.htm" class="chapter-card">Chapter 5 – LINEAR INEQUALITIES <i class="fi fi-sr-arrows"></i></a>
-      <a href="6.htm" class="chapter-card">Chapter 6 – PERMUTATIONS & COMBINATIONS <i class="fi fi-sr-dice"></i></a>
-      <a href="7.htm" class="chapter-card">Chapter 7 – BINOMIAL THEOREM <i class="fi fi-sr-chart-histogram"></i></a>
-      <a href="8.htm" class="chapter-card">Chapter 8 – SEQUENCES & SERIES <i class="fi fi-sr-numbers"></i></a>
-      <a href="9.htm" class="chapter-card">Chapter 9 – STRAIGHT LINES <i class="fi fi-sr-minus"></i></a>
-      <a href="10.htm" class="chapter-card">Chapter 10 – CONIC SECTIONS <i class="fi fi-sr-circle-small"></i></a>
-      <a href="11.htm" class="chapter-card">Chapter 11 – INTRO TO 3D GEOMETRY <i class="fi fi-sr-cube"></i></a>
-      <a href="12.htm" class="chapter-card">Chapter 12 – LIMITS & DERIVATIVES <i class="fi fi-sr-chart-line-up"></i></a>
-      <a href="13.htm" class="chapter-card">Chapter 13 – STATISTICS <i class="fi fi-sr-chart-pie"></i></a>
-      <a href="14.htm" class="chapter-card">Chapter 14 – PROBABILITY <i class="fi fi-sr-dice-d20"></i></a>
+      <a href="imp1.htm" class="chapter-card">Chapter 1 – SETS <i class="fi fi-sr-link"></i></a>
+      <a href="imp2.htm" class="chapter-card">Chapter 2 – RELATIONS & FUNCTIONS <i class="fi fi-sr-share"></i></a>
+      <a href="imp3.htm" class="chapter-card">Chapter 3 – TRIGONOMETRIC FUNCTIONS <i class="fi fi-sr-triangle"></i></a>
+      <a href="imp4.htm" class="chapter-card">Chapter 4 – COMPLEX NUMBERS <i class="fi fi-sr-circle"></i></a>
+      <a href="imp5.htm" class="chapter-card">Chapter 5 – LINEAR INEQUALITIES <i class="fi fi-sr-arrows"></i></a>
+      <a href="imp6.htm" class="chapter-card">Chapter 6 – PERMUTATIONS & COMBINATIONS <i class="fi fi-sr-dice"></i></a>
+      <a href="imp7.htm" class="chapter-card">Chapter 7 – BINOMIAL THEOREM <i class="fi fi-sr-chart-histogram"></i></a>
+      <a href="imp8.htm" class="chapter-card">Chapter 8 – SEQUENCES & SERIES <i class="fi fi-sr-numbers"></i></a>
+      <a href="imp9.htm" class="chapter-card">Chapter 9 – STRAIGHT LINES <i class="fi fi-sr-minus"></i></a>
+      <a href="imp10.htm" class="chapter-card">Chapter 10 – CONIC SECTIONS <i class="fi fi-sr-circle-small"></i></a>
+      <a href="imp11.htm" class="chapter-card">Chapter 11 – INTRO TO 3D GEOMETRY <i class="fi fi-sr-cube"></i></a>
+      <a href="Imp12.htm" class="chapter-card">Chapter 12 – LIMITS & DERIVATIVES <i class="fi fi-sr-chart-line-up"></i></a>
+      <a href="imp13.htm" class="chapter-card">Chapter 13 – STATISTICS <i class="fi fi-sr-chart-pie"></i></a>
+      <a href="imp14.htm" class="chapter-card">Chapter 14 – PROBABILITY <i class="fi fi-sr-dice-d20"></i></a>
     </div>
   </section>
 
