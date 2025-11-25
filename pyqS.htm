@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Important Questions</title>
+   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+  <link rel="stylesheet" href="loader and scroll progress.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="custom-scrollbar.css">
+<style>
+    /* ===== IMPORT FONTS ===== */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap');
+
+    /* ===== BASE STYLES ===== */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    body {
+      background: linear-gradient(120deg, #f9f9f9, #f0f4ff);
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    body.dark {
+      background: linear-gradient(120deg, #141e30, #243b55);
+      color: white;
+    }
+    body.dark p { color: white; }
+
+    /* ===== INDEX SECTION ===== */
+    .questions-index { text-align:center; padding:70px 20px; }
+    .questions-index h1 {
+      font-size:2.6rem; margin-bottom:12px; font-weight:700;
+      background-image: linear-gradient(90deg, #2563eb, #06b6d4, #10b981);
+      background-clip: text; -webkit-background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+      display:inline-block;
+    }
+    .questions-index p { margin-bottom:40px; color:#555; font-size:1.1rem; }
+
+    /* ===== CHAPTER CARDS ===== */
+    .chapters-list {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:20px;
+      max-width:1000px;
+      margin:0 auto;
+    }
+    .chapter-card {
+      padding:20px;
+      border-radius:14px;
+      text-decoration:none;
+      font-size:1.15rem;
+      font-weight:500;
+      color:#222;
+      background: linear-gradient(135deg,#fff,#f1f5f9);
+      border:1px solid rgba(0,0,0,0.05);
+      box-shadow:0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .chapter-card i { font-size:1.3rem; opacity:0.8; color:#2563eb; }
+    .chapter-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+      background: linear-gradient(135deg,#eef6ff,#e0f7f4);
+    }
+    body.dark .chapter-card {
+      background: linear-gradient(135deg, rgba(56,189,248,0.2), rgba(6,214,160,0.2));
+      border:1px solid rgba(255,255,255,0.1); color:white; backdrop-filter:blur(8px);
+    }
+    body.dark .chapter-card:hover {
+      box-shadow:0 8px 24px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, rgba(56,189,248,0.4), rgba(6,214,160,0.4));
+    }
+</style>
+</head>
+<body>
+ <nav class="navbar">
+    <div class="logo"><i class="fi fi-ss-book-open-cover" style="position: relative; left: -2px; top: 3px;"></i> <span>Class 11 Mathematics</span></div>
+
+    <div class="menu">
+      <a href="index.htm">Home</a>
+      <div class="dropdown">
+          <button>Extras <span  claass="arrow">▾</span></button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm">About</a>
+    </div>
+    <div class="neon-toggle" id="theme-toggle">
+      <div class="neon-circle sun"></div>
+    </div>
+</nav>
+
+<!-- BOTTOM NAVBAR FOR MOBILE -->
+<div class="bottom-nav">
+  <a href="index.htm"><i class="fi fi-ss-home" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i> Home</a>
+      <div class="dropdown">
+       <button>
+          <i class="fi fi-ss-apps"></i>
+          <span>Extras</span>
+        </button>
+        <div class="dropdown-content">
+          <a href="Syllabus.pdf"><i class="fi fi-ss-book"></i> CBSE Syllabus (2025-2026)</a>
+          <a href="ncert_solutions.htm"><i class="fi fi-ss-file"></i>  NCERT Solutions</a>
+          <a href="importants.htm"><i class="fi fi-ss-layers"></i> Important Questions</a>
+          <a href="pyqS.htm"><i class="fi fi-ss-document"></i> 43 years PYQs</a>
+        </div>
+      </div>
+      <a href="About_Page.htm"> <i class="fi fi-ss-user" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i>About</a>
+</div>
+  <section class="questions-index">
+    <h1>Chapterwise PYQs</h1>
+    <p>Select a chapter to view its past 43 years questions:</p>
+
+    <div class="chapters-list">
+      <a href="sets1.pdf" class="chapter-card">Chapter 1 – SETS <i class="fi fi-sr-link"></i></a>
+      <a href="f(x) 1.pdf" class="chapter-card">Chapter 2 – RELATIONS & FUNCTIONS <i class="fi fi-sr-share"></i></a>
+      <a href="trig1.pdf" class="chapter-card">Chapter 3 – TRIGONOMETRIC FUNCTIONS <i class="fi fi-sr-triangle"></i></a>
+      <a href="complex1.pdf" class="chapter-card">Chapter 4 – COMPLEX NUMBERS <i class="fi fi-sr-circle"></i></a>
+      <a href="LINEAR1.pdf" class="chapter-card">Chapter 5 – LINEAR INEQUALITIES <i class="fi fi-sr-arrows"></i></a>
+      <a href="permutations 1.pdf" class="chapter-card">Chapter 6 – PERMUTATIONS & COMBINATIONS <i class="fi fi-sr-dice"></i></a>
+      <a href="Binomial.pdf" class="chapter-card">Chapter 7 – BINOMIAL THEOREM <i class="fi fi-sr-chart-histogram"></i></a>
+      <a href="Series1.pdf" class="chapter-card">Chapter 8 – SEQUENCES & SERIES <i class="fi fi-sr-numbers"></i></a>
+      <a href="straightline1.pdf" class="chapter-card">Chapter 9 – STRAIGHT LINES <i class="fi fi-sr-minus"></i></a>
+      <a href="conics1.pdf" class="chapter-card">Chapter 10 – CONIC SECTIONS <i class="fi fi-sr-circle-small"></i></a>
+      <a href="3d geometry .pdf" class="chapter-card">Chapter 11 – INTRO TO 3D GEOMETRY <i class="fi fi-sr-cube"></i></a>
+      <a href="limits1.pdf" class="chapter-card">Chapter 12 – LIMITS & DERIVATIVES <i class="fi fi-sr-chart-line-up"></i></a>
+      <a href="Statistics1.pdf" class="chapter-card">Chapter 13 – STATISTICS <i class="fi fi-sr-chart-pie"></i></a>
+      <a href="probability1.pdf" class="chapter-card">Chapter 14 – PROBABILITY <i class="fi fi-sr-dice-d20"></i></a>
+    </div>
+  </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const body = document.body;
+  const toggle = document.getElementById("theme-toggle");
+  const circle = toggle.querySelector(".neon-circle"); 
+
+  // Theme load from localStorage
+  if(localStorage.getItem("dark-mode") === "true") {
+    body.classList.add("dark");
+    circle.classList.replace("sun","moon");
+  } else {
+    body.classList.remove("dark");
+    circle.classList.replace("moon","sun");
+  }
+
+  // Theme toggle
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("dark");
+    const isDark = body.classList.contains("dark");
+    localStorage.setItem("dark-mode", isDark);
+    if(isDark) circle.classList.replace("sun","moon");
+    else circle.classList.replace("moon","sun");
+  });
+
+
+});
+const hamburger = document.getElementById('hamburger');
+const menu = document.querySelector('.navbar .menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  menu.classList.toggle('active');
+});
+
+// Close menu when any link or dropdown clicked (mobile)
+document.querySelectorAll('.navbar .menu a, .navbar .dropdown button').forEach(link => {
+  link.addEventListener('click', () => {
+    if(window.innerWidth <= 900){
+      hamburger.classList.remove('active');
+      menu.classList.remove('active');
+    }
+  });
+});
+
+// Dropdown hover effect
+document.addEventListener("DOMContentLoaded", function() {
+  const dropdown = document.querySelector(".bottom-nav .dropdown");
+  const content = dropdown.querySelector(".dropdown-content");
+  const button = dropdown.querySelector("button");
+  const arrow = button.querySelector(".arrow");
+
+  button.addEventListener("mouseenter", () => {
+    content.style.opacity = "1";
+    content.style.pointerEvents = "auto";
+    content.style.transform = "translateY(-5px)";
+    arrow.style.transform = "rotate(180deg)";
+  });
+
+  button.addEventListener("mouseleave", () => {
+    content.style.opacity = "0";
+    content.style.pointerEvents = "none";
+    content.style.transform = "translateY(0)";
+    arrow.style.transform = "rotate(0deg)";
+  });
+
+  content.addEventListener("mouseenter", () => {
+    content.style.opacity = "1";
+    content.style.pointerEvents = "auto";
+    content.style.transform = "translateY(-5px)";
+    arrow.style.transform = "rotate(180deg)";
+  });
+
+  content.addEventListener("mouseleave", () => {
+    content.style.opacity = "0";
+    content.style.pointerEvents = "none";
+    content.style.transform = "translateY(0)";
+    arrow.style.transform = "rotate(0deg)";
+  });
+});
+
+</script>
+</body>
+</html>
