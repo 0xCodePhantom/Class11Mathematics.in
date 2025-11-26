@@ -143,6 +143,29 @@
         opacity: 1;
         transform: translateY(0px);
     }
+
+    .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .contact-links a {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px 15px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
+        transition: 0.25s ease;
+        font-size: 0.95rem;
+    }
+
+    .contact-links a:hover {
+        background: rgba(255, 255, 255, 0.18);
+        transform: translateX(4px);
+    }
 </style>
 
 <body>
@@ -190,7 +213,24 @@
 
         <div class="detail-box">
             <h3>Contact</h3>
-            <p>Email, social links or your portfolio page</p>
+
+            <div class="contact-links">
+                <a href="https://t.me/deve_lopers">Telegram</a>
+                <a href="https://whatsapp.com/channel/0029Vb67nwrFCCoY9N9oBi2t">Whatsapp</a>
+                <a href="https://www.instagram.com/developers_nagaji/#">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61584026251451">Facebook</a>
+                <a
+                    href="https://www.linkedin.com/in/developers-team-devlopers-563526392?utm_source=share_via&utm_content=profile&utm_medium=member_android">LinkedIn</a>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        </p>
         </div>
     </section>
 
@@ -214,4 +254,3 @@
 
 
 </html>
-
