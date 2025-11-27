@@ -1351,212 +1351,203 @@ background: #ace0fc50 ;
   <script src="theme-toggle.js"></script>
   
 <script>
-    // Initialize EmailJS
-    document.addEventListener("DOMContentLoaded", function() {
-      emailjs.init("RYYFC5RhmjDpeAxwv");
+   document.addEventListener("DOMContentLoaded", function () {
 
-      const form = document.getElementById("contact-form");
-      const statusBox = document.getElementById("status");
-      const mainContent = document.getElementById("main-content");
+  // Init EmailJS
+  emailjs.init("RYYFC5RhmjDpeAxwv");
 
-      const submissionLimit = 2; // max allowed submissions
-      const blockDuration = 2 * 60 * 60 * 1000; // 2 hours in milliseconds
+  const form = document.getElementById("contact-form");
+  const statusBox = document.getElementById("status");
+  const mainContent = document.getElementById("main-content");
 
-      // Function to block the entire page
-      function blockPage() {
-        // Create blocking overlay
-        const blockOverlay = document.createElement('div');
-        blockOverlay.id = 'block-overlay';
-        blockOverlay.style.cssText = `
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(255, 255, 255, 0.95);
-          z-index: 9999;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          backdrop-filter: blur(5px);
-        `;
-        
-        // Create block message
-        const blockMessage = document.createElement('div');
-        blockMessage.style.cssText = `
-          background: #333;
-          padding: 40px;
-          border-radius: 12px;
-          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-          text-align: center;
-          max-width: 500px;
-          width: 90%;
-        `;
-        
-        blockMessage.innerHTML = `
-          <h2 style="color: #e74c3c; margin-bottom: 20px; font-size: 24px;">
-            <i class="fi fi-ss-lock" style="font-size: 28px; position: relative; top: 3px; margin-right: 10px;"></i>
-            Access Temporarily Restricted
-          </h2>
-          <p style="color: #7f8c8d; margin-bottom: 25px; line-height: 1.6;">
-            You've exceeded the submission limit. Please try again later.
-          </p>
-          <div id="countdown" style="font-size: 18px; font-weight: 600; color: white; margin-top: 20px;">
-            Block expires in: Calculating...
-          </div>
-        `;
-        
-        blockOverlay.appendChild(blockMessage);
-        document.body.appendChild(blockOverlay);
-        
-        // Disable all interactive elements
-        const interactiveElements = mainContent.querySelectorAll('a, button, input, textarea, select');
-        interactiveElements.forEach(el => {
-          el.disabled = true;
-          el.style.pointerEvents = 'none';
-          el.style.opacity = '0.6';
+  const submissionLimit = 3;
+  const blockDuration = 2 * 60 * 60 * 1000; // 2 hours
+
+  // Reusable form disable / enable
+  function disableForm() {
+    form.querySelectorAll("input, textarea, button").forEach(el => {
+      el.disabled = true;
+    });
+  }
+
+  function enableForm() {
+    form.querySelectorAll("input, textarea, button").forEach(el => {
+      el.disabled = false;
+    });
+  }
+
+  // Page blocker
+  function blockPage() {
+    if (!mainContent) return;
+
+    // Create overlay
+    const overlay = document.createElement("div");
+    overlay.id = "block-overlay";
+    overlay.style.cssText = `
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    `;
+
+    // Block message
+    const msg = document.createElement("div");
+    msg.style.cssText = `
+      background: #333;
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 450px;
+      text-align: center;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    `;
+    msg.innerHTML = `
+      <h2 style="color:#e74c3c; margin-bottom:15px; font-size:24px;">
+        Access Temporarily Restricted
+      </h2>
+      <p style="color:#ccc; margin-bottom:20px;">
+        You've exceeded the submission limit. Please try again later.
+      </p>
+      <div id="countdown" style="font-size:18px; color:white; font-weight:600;">
+        Block expires in: Calculating...
+      </div>
+    `;
+
+    overlay.appendChild(msg);
+    document.body.appendChild(overlay);
+
+    // Disable interactions
+    const controls = mainContent.querySelectorAll("a, button, input, textarea, select");
+    controls.forEach(el => {
+      el.disabled = true;
+      el.style.pointerEvents = "none";
+      el.style.opacity = ".6";
+    });
+  }
+
+  // Countdown
+  function startCountdown(endTime) {
+    const cd = document.getElementById("countdown");
+    if (!cd) return;
+
+    const timer = setInterval(() => {
+      const now = Date.now();
+      const remain = endTime - now;
+
+      if (remain <= 0) {
+        clearInterval(timer);
+        localStorage.removeItem("blocked");
+        localStorage.removeItem("blockedAt");
+        localStorage.setItem("submissions", 0);
+
+        const ov = document.getElementById("block-overlay");
+        if (ov) ov.remove();
+        enableForm();
+
+        const controls = mainContent?.querySelectorAll("a, button, input, textarea, select");
+        controls?.forEach(el => {
+          el.disabled = false;
+          el.style.pointerEvents = "auto";
+          el.style.opacity = "1";
         });
-      }
-      
-      // Function to start countdown timer
-      function startCountdown(endTime) {
-        const countdownElement = document.getElementById('countdown');
-        if (!countdownElement) return;
-        
-        const countdownInterval = setInterval(() => {
-          const now = Date.now();
-          const timeRemaining = endTime - now;
-          
-          if (timeRemaining <= 0) {
-            clearInterval(countdownInterval);
-            localStorage.removeItem("blocked");
-            localStorage.removeItem("blockedAt");
-            localStorage.setItem("submissions", 0);
-            
-            // Remove block overlay
-            const blockOverlay = document.getElementById('block-overlay');
-            if (blockOverlay) {
-              blockOverlay.remove();
-            }
-            
-            // Re-enable interactive elements
-            const interactiveElements = mainContent.querySelectorAll('a, button, input, textarea, select');
-            interactiveElements.forEach(el => {
-              el.disabled = false;
-              el.style.pointerEvents = 'auto';
-              el.style.opacity = '1';
-            });
-            
-            return;
-          }
-          
-          const hours = Math.floor(timeRemaining / (1000 * 60 * 60));
-          const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-          
-          countdownElement.textContent = `Block expires in: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }, 1000);
+
+        return;
       }
 
-      // Check if user is blocked and if block duration is over
-      const blockedAt = parseInt(localStorage.getItem("blockedAt"));
-      if (localStorage.getItem("blocked") === "true") {
+      const h = Math.floor(remain / (1000 * 60 * 60));
+      const m = Math.floor((remain % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((remain % (1000 * 60)) / 1000);
+
+      cd.textContent = `Block expires in: ${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+    }, 1000);
+  }
+
+  // Check if blocked
+  const blockedAt = parseInt(localStorage.getItem("blockedAt"));
+  if (localStorage.getItem("blocked") === "true") {
+    const now = Date.now();
+    const end = blockedAt + blockDuration;
+
+    if (now < end) {
+      blockPage();
+      disableForm();
+      startCountdown(end);
+    } else {
+      localStorage.removeItem("blocked");
+      localStorage.removeItem("blockedAt");
+      localStorage.setItem("submissions", 0);
+    }
+  }
+
+  let submissions = parseInt(localStorage.getItem("submissions")) || 0;
+
+  // Toast utility
+  function showToast(msg, error = false) {
+    const toast = document.getElementById("custom-toast");
+    if (!toast) return;
+
+    toast.textContent = msg;
+    toast.style.background = error ? "#f44336" : "#4caf50";
+    toast.classList.add("show");
+
+    setTimeout(() => toast.classList.remove("show"), 3000);
+  }
+
+  // Form submit
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      submissions++;
+      localStorage.setItem("submissions", submissions);
+
+      // If reached limit
+      if (submissions >= submissionLimit) {
         const now = Date.now();
-        const endTime = blockedAt + blockDuration;
-        
-        if (now > endTime) {
-          // unblock user if block duration has passed
-          localStorage.removeItem("blocked");
-          localStorage.removeItem("blockedAt");
-          localStorage.setItem("submissions", 0);
-        } else {
-          // Block the page and start countdown with remaining time
-          blockPage();
-          startCountdown(endTime);
-          
-          // Disable the form specifically
-          if (form) {
-            form.querySelectorAll('input, textarea, button').forEach(el => {
-              el.disabled = true;
-            });
-          }
-        }
+        localStorage.setItem("blocked", "true");
+        localStorage.setItem("blockedAt", now);
+
+        showToast("You've been temporarily blocked from sending messages.", true);
+
+        blockPage();
+        disableForm();
+        startCountdown(now + blockDuration);
+        return;
       }
 
-      let submissions = parseInt(localStorage.getItem("submissions")) || 0;
+      showToast(`Mail initiated! (${submissions}/${submissionLimit})`);
 
-      // Function to show custom toast
-      function showCustomToast(message, isError = false) {
-        const toast = document.getElementById("custom-toast");
-        toast.textContent = message;
-        toast.style.background = isError ? '#f44336' : '#4caf50';
-        toast.classList.add("show");
-        setTimeout(() => {
-          toast.classList.remove("show");
-        }, 3000);
-      }
+      statusBox.className = "status-box sending";
+      statusBox.textContent = "Sending...";
+      statusBox.classList.remove("hidden");
 
-      if (form) {
-        form.addEventListener("submit", function(e) {
-          e.preventDefault();
+      // Send main email
+      emailjs.sendForm("service_f3vgf0w", "template_9d0xxkr", form)
+        .then(() => {
+          // Auto reply
+          emailjs.send("service_tqkynit", "template_yqiy21h", {
+            to_name: form.user_name.value,
+            to_email: form.user_email.value
+          });
 
-          submissions++;
-          localStorage.setItem("submissions", submissions);
+          statusBox.className = "status-box success";
+          statusBox.textContent = "Message sent successfully!";
+          form.reset();
 
-          if (submissions >= submissionLimit) {
-            const blockedAtTime = Date.now();
-            localStorage.setItem("blocked", "true");
-            localStorage.setItem("blockedAt", blockedAtTime);
-            showCustomToast("🚫 You've been temporarily blocked from sending messages", true);
-            
-            // Block the entire page
-            blockPage();
-            startCountdown(blockedAtTime + blockDuration);
-            
-            // Disable the form
-            form.querySelectorAll('input, textarea, button').forEach(el => {
-              el.disabled = true;
-            });
-            
-            return;
-          }
-
-          // Show warning toast
-          showCustomToast(`Mail initiated! (${submissions}/${submissionLimit}) Next mail will block you`);
-
-          // Sending status
-          statusBox.className = "status-box sending";
-          statusBox.textContent = "Sending...";
-          statusBox.classList.remove("hidden");
-
-          // First: send the form data to you
-          emailjs.sendForm("service_tqkynit", "template_yvclfof", this)
-            .then(() => {
-              // Then: send auto-reply to the user
-              emailjs.send("service_tqkynit", "template_yqiy21h", {
-                to_name: form.user_name.value,
-                to_email: form.user_email.value
-              });
-
-              statusBox.className = "status-box success";
-              statusBox.textContent = "✅ Message sent successfully! We'll get back to you soon.";
-              form.reset();
-
-              // Hide status after 4 seconds
-              setTimeout(() => {
-                statusBox.classList.add("hidden");
-              }, 4000);
-            })
-            .catch(err => {
-              console.error("❌ EmailJS Error:", err);
-              statusBox.className = "status-box error";
-              statusBox.textContent = "❌ Failed to send. Try again.";
-              setTimeout(() => {
-                statusBox.classList.add("hidden");
-              }, 4000);
-            });
+          setTimeout(() => statusBox.classList.add("hidden"), 4000);
+        })
+        .catch(err => {
+          console.error("EmailJS Error:", err);
+          statusBox.className = "status-box error";
+          statusBox.textContent = "Failed to send. Try again.";
+          setTimeout(() => statusBox.classList.add("hidden"), 4000);
         });
-      }
+    });
+  }
 
       // Accordion functionality
       const chapters = document.querySelectorAll(".chapter-card");
@@ -1704,4 +1695,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 </html>
+
 
