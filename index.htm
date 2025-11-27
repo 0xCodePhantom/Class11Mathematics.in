@@ -915,6 +915,59 @@ background: #ace0fc50 ;
         min-width: 140px;
       }
     }
+.update {
+  background: #1f1f1f;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  border-left: 4px solid #4caf50;
+}
+
+.update strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.update-message {
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.toast2 {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1f1f1f;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  border-left: 4px solid #4caf50;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(25px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.toast2 strong {
+  font-size: 16px;
+}
+
+.toast2.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
 
   </style>
 </head>
@@ -971,7 +1024,10 @@ background: #ace0fc50 ;
       </div>
       <a href="About_Page.htm"> <i class="fi fi-ss-user" style="font-size:20px; position:relative; top:2px; margin-bottom:3px;"></i>About</a>
     </div>
-
+<div class="toast2" id="toast2">
+  <strong>Site Updated</strong>
+  <span>Email section repaired.</span>
+</div>
     <!-- Hero Section -->
     <div class="hero-section">
       <h1>Unlock Knowledge. Build the Future.</h1>
@@ -1529,9 +1585,9 @@ background: #ace0fc50 ;
       emailjs.sendForm("service_f3vgf0w", "template_9d0xxkr", form)
         .then(() => {
           // Auto reply
-          emailjs.send("service_tqkynit", "template_yqiy21h", {
-            to_name: form.user_name.value,
-            to_email: form.user_email.value
+          emailjs.send("service_f3vgf0w", "template_5sq3qtf", {
+            to_name: form.name.value,
+            to_email: form.email.value
           });
 
           statusBox.className = "status-box success";
@@ -1691,10 +1747,30 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<script>
+function showToast2(title, text) {
+  const toast = document.getElementById("toast2");
+
+  toast.querySelector("strong").innerText = title;
+  toast.querySelector("span").innerText = text;
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+// Example:
+showToast2("Site Updated", "Email section repaired.");
+</script>
+
+
 </body>
 
 
 </html>
+
 
 
 
